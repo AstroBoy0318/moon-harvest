@@ -10,15 +10,14 @@ declare module 'styled-components' {
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: inherit;
-    text-transform: uppercase;
   }
   @font-face {
-    font-family: "Por Siempre Gti";
-    src: url(/fonts/PorSiempreGótica.ttf);
+    font-family: "Futura";
+    src: url(/fonts/futura/FuturaHeavyfont.ttf);
   }  
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    font-family: 'Trajan Pro', sans-serif;
+    font-family: "Futura";
 
     img {
       height: auto;
