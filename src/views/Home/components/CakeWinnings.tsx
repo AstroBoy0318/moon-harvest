@@ -11,12 +11,12 @@ const CakeWinnings = () => {
   const { claimAmount } = useTotalClaim()
   if (!account) {
     return (
-      <Text color="black" style={{ lineHeight: '30px' }}>
+      <Text color="text" style={{ lineHeight: '50px',fontSize:"35px" }}>
         {TranslateString(298, 'Locked')}
       </Text>
     )
   }
-  return <CardValue value={getBalanceNumber(claimAmount)} />
+  return <CardValue value={getBalanceNumber(claimAmount)} fontSize="35px"/>
 }
 
 export default CakeWinnings

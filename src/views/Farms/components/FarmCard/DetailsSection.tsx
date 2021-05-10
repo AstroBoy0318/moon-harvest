@@ -67,7 +67,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
           <Text>{totalValueFormated}</Text>
         </Flex>
       )}
-      <Flex justifyContent="flex-start">
+      <Flex justifyContent="center">
         <Link external href={bscScanAddress} bold={false}>
           {TranslateString(356, 'View on BscScan')}
         </Link>

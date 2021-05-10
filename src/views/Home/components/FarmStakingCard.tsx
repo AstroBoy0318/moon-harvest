@@ -16,23 +16,13 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/cardback_home.png');
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-  border-radius: 0;
-  text-align: center;
-  height: 360px;
-  ${({ theme }) => theme.mediaQueries.sm}{
-    height: 320px;
-  }
-  & *{
-    font-family: "Trajan Pro";
-    font-weight: bold;
-  }
+  background: #0061a7;
+  border-radius: 10px;
+  text-align: left;
+  height: max-content;
 `
 
 const Block = styled.div`
-  margin-top: -25px;
   z-index: 1;
   position: relative;
 `
@@ -44,28 +34,19 @@ const CardImage = styled.img`
 `
 
 const Label = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
 `
 
 const Actions = styled.div`
-  position: absolute;
-  bottom: 12%;
-  width: 88%;
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
 `
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-`
-
-const Left = styled.div`
-  width: 45%;
-  margin-right: 10%;
-`
-
-const Right = styled.div`
-  width: 45%;
 `
 
 const FarmedStakingCard = () => {
@@ -97,29 +78,34 @@ const FarmedStakingCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="lg" mb="24px"  color="#7f080e" style={{width: "7em", margin: "0 auto", fontFamily: "Trajan Pro", marginTop: '10px' }}>
+        <Heading size="xl" mb="24px" style={{ marginTop: '10px',textAlign: "left" }}>
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/cardBack.png" alt="AOF logo" width={70}/>
+        <img src="/images/he3.png" alt="He3" style={{ width: "70px",marginBottom: "1em" }}/>
         <Block>
+          <Row>
+            <Label>HELIUM3 to Harvest</Label>
+          </Row>
  		      <Row>
-		        <Left>
-		          <CakeHarvestBalance earningsSum={earningsSum}/>
-              <Label>AOF to Harvest</Label>
-	            <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
-            </Left>
-            <Right>
-	            <CakeWalletBalance cakeBalance={cakeBalance} />
-	            <Label>AOF in Wallet</Label>
-	            <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
-	          </Right>
-	        </Row>
+            <CakeHarvestBalance earningsSum={earningsSum}/>
+          </Row>
+          <Row>
+            <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
+          </Row>
+          <Row style={{marginTop: "1em"}}>
+            <Label>HELIUM3 in Wallet</Label>
+          </Row>
+          <Row>
+            <CakeWalletBalance cakeBalance={cakeBalance} />
+          </Row>
+          <Row>
+            <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
+          </Row>
         </Block>
 
         <Actions>
           {account ? (
             <Button
-              className="imgBtn"
               id="harvest-all"
               disabled={balancesWithValue.length <= 0 || pendingTx}
               onClick={harvestAllFarms}

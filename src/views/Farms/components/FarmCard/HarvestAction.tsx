@@ -20,10 +20,6 @@ const BalanceAndCompound = styled.div`
 `
 
 const HarvestButton = styled(Button)`
-  background: url('/images/${({ disabled, color, theme }) => (disabled ? 'harvestbtn_back.png' : 'farmunlockbtn_back.png')}') !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat;
-  padding-top: 5px;
   box-shadow: none !important;
 `
 
@@ -38,7 +34,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
 
   return (
     <Flex mb="8px" justifyContent="space-between" alignItems="center" style={{marginTop: "-5px"}}>
-      <Heading color={rawEarningsBalance === 0 ? 'primary' : 'primary'} style={{fontFamily:"Por Siempre Gti", fontSize:"24px", marginTop: "1em"}}>{displayBalance}</Heading>
+      <Heading color={rawEarningsBalance === 0 ? 'text' : 'text'}>{displayBalance}</Heading>
       <BalanceAndCompound>
         {pid === 12 ?
           <HarvestButton

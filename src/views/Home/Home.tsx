@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
+import { BaseLayout } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'
@@ -9,6 +9,8 @@ import CakeStats from './components/CakeStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import EarnAssetCard from './components/EarnAssetCard'
 import WinCard from './components/WinCard'
+import Announcement from './components/Announcement'
+import LPWorth from './components/LPWorth'
 
 const Hero = styled.div`
   align-items: center;
@@ -34,18 +36,6 @@ const Hero = styled.div`
   }
 `
 
-const showtimer = styled.div`
-  align-items: center;  
-  background-position: top center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  margin-bottom: 32px;
-  padding-top: 116px;
-  text-align: center; 
-`
-
 const Cards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
@@ -54,7 +44,7 @@ const Cards = styled(BaseLayout)`
   & > div {
     grid-column: span 8;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -66,55 +56,27 @@ const Cards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 4;
+      grid-column: span 6;
     }
   }
 `
 
-const CTACards = styled(BaseLayout)`
-  align-items: start;
-  margin-bottom: 32px;
-
-  & > div {
-    grid-column: span 6;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: 2/span 10;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 4;
-    }
-  }
-`
-
-const Label = styled.div`
-  color: #ff0000;
-  font-size: 20px;
-  padding-bottom: 10px;
-`
 
 const Home: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
-    <Page style={{backgroundImage: "url(/images/mainback_home.jpg)"}}>
+    <Page>
       <Hero/>
       <div>
         <Cards>
           <FarmStakingCard />
-          <CakeStats />
           <LotteryCard />
-	      </Cards>
-	      <CTACards>
+          <Announcement />
+          <CakeStats />
+          <LPWorth />
           <TotalValueLockedCard />
-          <EarnAssetCard />
-          <WinCard />
-        </CTACards>
+	      </Cards>
       </div>
     </Page>
   )

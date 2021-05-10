@@ -55,11 +55,9 @@ const StyledCardAccent = styled.div`
 `
 
 const FCard = styled.div`
-  align-self: baseline;
-  background: ${(props) => props.theme.card.background};
-  background-image: url('/images/cardback_farms.png');
-  background-size: 100% 510px;
-  background-repeat: no-repeat;
+  align-self: baseline;  
+  background: #0061a7;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -138,7 +136,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'AOF' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'HEL3' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
@@ -151,8 +149,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
     {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
-          <Text bold style={{fontFamily:"Por Siempre Gti",color: "black"}} fontSize="20px">{TranslateString(352, 'APY')}:</Text>
-          <Text bold style={{ display: 'flex', alignItems: 'center',fontFamily:"Por Siempre Gti",color: "black" }} fontSize="20px">
+          <Text bold style={{fontFamily:"Por Siempre Gti"}} fontSize="20px">{TranslateString(352, 'APY')}:</Text>
+          <Text bold style={{ display: 'flex', alignItems: 'center',fontFamily:"Por Siempre Gti" }} fontSize="20px">
             {farm.apy ? (
               <>
                 <ApyButton
@@ -202,7 +200,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           tokenAddresses={tokenAddresses}
         />
       </ExpandingWrapper>
-      <BottomBar/>
     </FCard>
   )
 }
