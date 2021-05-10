@@ -1,0 +1,16 @@
+{
+  "short_name": "Age of Farming",
+  "name": "Age of Farming",
+  "description": "Farm AOF with Age of Farming LP Tokens",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
