@@ -61,8 +61,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 13% 20%;
-  padding-right: 22%;
+  padding: 8% 10%;
   position: relative;
   text-align: center;
   ${({ theme }) => theme.mediaQueries.sm}{
