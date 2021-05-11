@@ -26,6 +26,8 @@ const FarmCards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
   margin-bottom: 48px;
+  max-width: 1140px;
+  margin: 0 auto;
 
   & > div {
     grid-column: span 8;
@@ -130,7 +132,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   )
 
   return (
-    <Page style={{backgroundImage: "url(/images/mainback_farms.jpg)"}}>    
+    <Page>
       <div style={{marginTop: "30px"}}>
         <FarmCards>
           <Route exact path={`${path}`}>

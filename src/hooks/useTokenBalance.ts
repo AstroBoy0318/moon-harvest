@@ -3,10 +3,12 @@ import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import cakeABI from 'config/abi/cake.json'
+import masterchefABI from 'config/abi/masterchef.json'
 import { getContract } from 'utils/web3'
 import { getTokenBalance, getLpBnbBalance1, getLpBnbBalance2, getLpTotalSupply } from 'utils/erc20'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getCakeAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
+
 
 const useTokenBalance = (tokenAddress: string) => {
   const [balance, setBalance] = useState(new BigNumber(0))
@@ -116,6 +118,57 @@ export const useGetTotalSupply = () => {
   }, [ethereum, fastRefresh])
   
   return balance
+}
+
+export const useTotalLockedRewards = () => {
+  const { slowRefresh } = useRefresh()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+
+  useEffect(() => {
+    async function fetchTotalSupply() {
+      const masterchefContract = getContract(masterchefABI, getMasterChefAddress())
+      const supply = await masterchefContract.methods.totalLockedUpRewards().call()
+      setTotalSupply(new BigNumber(supply))
+    }
+
+    fetchTotalSupply()
+  }, [slowRefresh])
+
+  return totalSupply
+}
+
+export const useMaxTxAmount = () => {
+  const { slowRefresh } = useRefresh()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+
+  useEffect(() => {
+    async function fetchTotalSupply() {
+      const cakeContract = getContract(cakeABI, getCakeAddress())
+      const supply = await cakeContract.methods.maxTransferAmount().call()
+      setTotalSupply(new BigNumber(supply))
+    }
+
+    fetchTotalSupply()
+  }, [slowRefresh])
+
+  return totalSupply
+}
+
+export const useTransferTax = () => {
+  const { slowRefresh } = useRefresh()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+
+  useEffect(() => {
+    async function fetchTotalSupply() {
+      const cakeContract = getContract(cakeABI, getCakeAddress())
+      const supply = await cakeContract.methods.transferTaxRate().call()
+      setTotalSupply(new BigNumber(supply))
+    }
+
+    fetchTotalSupply()
+  }, [slowRefresh])
+
+  return totalSupply
 }
 
 export default useTokenBalance

@@ -57,7 +57,7 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div`
   align-self: baseline;  
   background: #0061a7;
-  border-radius: 10px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

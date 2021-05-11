@@ -2,8 +2,8 @@ import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
-import { getBalanceNumber } from 'utils/formatBalance'
-import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
+import { useTotalSupply, useBurnedBalance, useTotalLockedRewards, useMaxTxAmount, useTransferTax } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
@@ -33,6 +33,10 @@ const CakeStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
+  const totalLockedRewards = useTotalLockedRewards()
+  const maxTxAmount = useMaxTxAmount()
+  const transferTax = useTransferTax()
+  const transferTaxvalue = (getBalanceNumber(transferTax))*1000000000000000000
   const farms = useFarms();
   const eggPrice = usePriceCakeBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
@@ -51,7 +55,7 @@ const CakeStats = () => {
           Helium 3 Stats
         </Heading>
         <Row>
-          <Text fontSize="14px" color="text">Total AOF Supply</Text>
+          <Text fontSize="14px" color="text">Total He3 Supply</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
@@ -63,12 +67,24 @@ const CakeStats = () => {
           <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
         </Row>
         <Row>
+          <Text fontSize="14px" color="text">Total Locked Rewards</Text>
+          {totalLockedRewards && <CardValue fontSize="14px" value={getBalanceNumber(totalLockedRewards)} decimals={0} />}
+        </Row>
+        <Row>
           <Text fontSize="14px" color="text">Circulating Supply</Text>
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px" color="text">New AOF/block</Text>
+          <Text fontSize="14px" color="text">Max Tx Amount</Text>
+          {maxTxAmount && <CardValue fontSize="14px" value={getBalanceNumber(maxTxAmount)} decimals={0} />}
+        </Row>
+        <Row>
+          <Text fontSize="14px" color="text">New He3/block</Text>
           <Text bold fontSize="14px">{Helium3PerBlock}</Text>
+        </Row>
+        <Row>
+          <Text fontSize="14px" color="text">Transfer Tax</Text>
+          {transferTax && <CardValue fontSize="14px" value={transferTaxvalue} decimals={0} surfix="%" />}
         </Row>
       </CardBody>
     </StyledCakeStats>
