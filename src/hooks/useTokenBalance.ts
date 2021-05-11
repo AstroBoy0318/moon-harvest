@@ -4,7 +4,7 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import cakeABI from 'config/abi/cake.json'
 import { getContract } from 'utils/web3'
-import { getTokenBalance } from 'utils/erc20'
+import { getTokenBalance, getLpBnbBalance1, getLpBnbBalance2, getLpTotalSupply } from 'utils/erc20'
 import { getCakeAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
@@ -58,6 +58,63 @@ export const useBurnedBalance = (tokenAddress: string) => {
     fetchBalance()
   }, [tokenAddress, slowRefresh])
 
+  return balance
+}
+
+export const useLPBnbamount1 = () => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { ethereum }: { ethereum: provider } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getLpBnbBalance1(ethereum)
+      setBalance(new BigNumber(res))
+    }   
+
+    if (ethereum) {
+      fetchBalance()
+    }
+  }, [ethereum, fastRefresh])
+  
+  return balance
+}
+
+export const useLPBnbamount2 = () => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { ethereum }: { ethereum: provider } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getLpBnbBalance2(ethereum)
+      setBalance(new BigNumber(res))
+    }   
+
+    if (ethereum) {
+      fetchBalance()
+    }
+  }, [ethereum, fastRefresh])
+  
+  return balance
+}
+
+export const useGetTotalSupply = () => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { ethereum }: { ethereum: provider } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getLpTotalSupply(ethereum)
+      setBalance(new BigNumber(res))
+    }   
+
+    if (ethereum) {
+      fetchBalance()
+    }
+  }, [ethereum, fastRefresh])
+  
   return balance
 }
 

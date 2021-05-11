@@ -8,7 +8,7 @@ export interface Farm extends FarmConfig {
   tokenPriceVsQuote?: BigNumber
   poolWeight?: number
   depositFeeBP?: number
-  eggPerBlock?: number
+  Helium3PerBlock?: number
     userData?: {
     allowance: BigNumber
     tokenBalance: BigNumber

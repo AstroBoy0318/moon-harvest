@@ -21,7 +21,7 @@ const CardHeading = styled.div`
 
 const TopLotteryCardHeading = styled(LotteryCardHeading)`
   margin-bottom: ${(props) => props.theme.spacing[2]}px;
-  color: black;
+  color: ${({ theme }) => theme.colors.text};
 `
 
 const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => {
@@ -45,7 +45,7 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
         <CardBody style={{padding: "45px 13% 0 10%"}}>
           <CardHeading>
             <Timestamp timeValue={lotteryDate} />
-            <Heading size="lg" color="primary" style={{textAlign:"center",width: "53%",margin: "0 auto"}}>
+            <Heading size="lg" color="text" style={{textAlign:"center",width: "53%",margin: "0 auto"}}>
               Round Number {lotteryNumber}
             </Heading>
             <TopLotteryCardHeading
@@ -55,7 +55,7 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
               {TranslateString(999, 'Winning numbers')}
             </TopLotteryCardHeading>
             <LotteryCardHeading
-              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} AOF`)}
+              valueToDisplay={TranslateString(999, `${poolSize.toLocaleString()} Hel3`)}
               Icon={PancakeRoundIcon}
             >
               {TranslateString(999, 'Total prizes')}

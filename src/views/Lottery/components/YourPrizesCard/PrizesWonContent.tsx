@@ -66,24 +66,24 @@ const PrizesWonContent: React.FC = () => {
       <IconWrapper>
         <Won />
       </IconWrapper>
-      <Heading as="h3" size="lg" color="primary">
+      <Heading as="h3" size="lg" color="text">
         {TranslateString(999, 'You won!')}
       </Heading>
       {claimLoading && <Loading />}
       {!claimLoading && (
         <>
           <WinningsWrapper>
-            <Heading as="h4" size="xl" color="primary" style={{ marginRight: '6px' }}>
+            <Heading as="h4" size="xl" color="text" style={{ marginRight: '6px' }}>
               {winnings}
             </Heading>
-            <Heading as="h4" size="lg" color="primary">
+            <Heading as="h4" size="lg" color="text">
               AOF
             </Heading>
           </WinningsWrapper>
         </>
       )}
       <StyledCardActions>
-        <Button fullWidth disabled={requestedClaim} onClick={handleClaim} className="imgBtn">
+        <Button fullWidth disabled={requestedClaim} onClick={handleClaim}>
           {TranslateString(999, 'Collect')}
         </Button>
       </StyledCardActions>

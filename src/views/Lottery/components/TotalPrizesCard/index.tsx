@@ -58,14 +58,14 @@ const TotalPrizesCard = () => {
   const { colors } = useContext(ThemeContext)
 
   return (
-    <Card style={{backgroundImage: 'url(/images/cardback_home.png)',backgroundSize: '100% 100%',borderRadius: 0}}>
+    <Card style={{ background: "#0061a7" }}>
       <CardBody style={{paddingBottom: 0}}>
         {account && (
           <Flex mb="16px" alignItems="center" justifyContent="space-between" style={{ height: '20px',marginBottom: 0,marginTop: '10px' }}>
             {currentLotteryNumber === 0 && <Skeleton height={20} width={56} />}
             {currentLotteryNumber > 0 && (
               <>
-                <Text fontSize="18px" style={{ fontWeight: 600,margin: "0 auto" }} color="primary">{`Round #${currentLotteryNumber}`}</Text>
+                <Text fontSize="18px" style={{ fontWeight: 600,margin: "0 auto" }} color="text">{`Round #${currentLotteryNumber}`}</Text>
               </>
             )}
           </Flex>
@@ -76,10 +76,10 @@ const TotalPrizesCard = () => {
               <PancakeRoundIcon />
             </IconWrapper>
             <PrizeCountWrapper>
-              <Text fontSize="22px" color="primary" style={{paddingTop: '15px'}}>
+              <Text fontSize="22px" color="text" style={{paddingTop: '15px'}}>
                 {TranslateString(999, 'Total Pot:')}
               </Text>
-              <Heading size="lg" style={{color:colors.primary, display:"none"}}>{lotteryPrizeWithCommaSeparators} AOF</Heading>
+              <Heading size="lg" style={{color:colors.text, display:"none"}}>{lotteryPrizeWithCommaSeparators} Hel3</Heading>
             </PrizeCountWrapper>
           </Left>
           <Right>

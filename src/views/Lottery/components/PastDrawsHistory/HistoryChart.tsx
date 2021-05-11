@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useContext } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { Text } from '@pancakeswap-libs/uikit'
 import PastLotteryDataContext from 'contexts/PastLotteryDataContext'
 import Loading from '../Loading'
@@ -16,6 +16,7 @@ const InnerWrapper = styled.div`
 
 const HistoryChart: React.FC = () => {
   const { historyData, historyError } = useContext(PastLotteryDataContext)
+  const {colors} = useContext(ThemeContext)
   const getDataArray = (kind) => {
     return historyData
       .map((dataPoint) => {
@@ -41,13 +42,13 @@ const HistoryChart: React.FC = () => {
         label: 'Pool Size',
         data: getDataArray('poolSize'),
         yAxisID: 'y-axis-pool',
-        ...lineStyles({ color: '#0042a4' }),
+        ...lineStyles({ color: colors.warning }),
       },
       {
         label: 'Burned',
         data: getDataArray('burned'),
         yAxisID: 'y-axis-burned',
-        ...lineStyles({ color: '#7f080e' }),
+        ...lineStyles({ color: colors.secondary }),
       },
     ],
   }
@@ -80,14 +81,14 @@ const HistoryChart: React.FC = () => {
           display: true,
           position: 'left',
           id: 'y-axis-pool',
-          ...axesStyles({ color: '#0042a4', lineHeight: 1.6 }),
+          ...axesStyles({ color: colors.warning, lineHeight: 1.6 }),
         },
         {
           type: 'linear',
           display: true,
           position: 'right',
           id: 'y-axis-burned',
-          ...axesStyles({ color: '#7f080e', lineHeight: 1.5 }),
+          ...axesStyles({ color: colors.secondary, lineHeight: 1.5 }),
         },
       ],
       xAxes: [

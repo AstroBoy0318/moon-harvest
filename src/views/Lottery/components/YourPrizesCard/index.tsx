@@ -7,11 +7,11 @@ import PrizesWonContent from './PrizesWonContent'
 import NoPrizesContent from './NoPrizesContent'
 
 const StyledCard = styled(Card)`
-  background: rgba(243,200,102,0.7);
+  background: #0061a7;
   margin-bottom: 7%;
   margin-left: 6%;
   margin-right: 4%;
-  border: 1px solid ${(props) => props.theme.colors.primary };
+  border: 0px solid ${(props) => props.theme.colors.primary };
   ${(props) =>
     props.isDisabled
       ? `  
@@ -36,7 +36,7 @@ const YourPrizesCard: React.FC = () => {
   const isAWin = winnings > 0
 
   return (
-    <StyledCard isDisabled={!isAWin} isActive={isAWin} color="primary">
+    <StyledCard isDisabled={!isAWin} isActive={isAWin} color="text">
       <CardBody>{isAWin ? <PrizesWonContent /> : <NoPrizesContent />}</CardBody>
     </StyledCard>
   )

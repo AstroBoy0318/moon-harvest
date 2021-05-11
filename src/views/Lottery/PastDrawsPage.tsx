@@ -37,7 +37,7 @@ const PastDrawsPage: React.FC = () => {
       <div style={{gridColumn: "span 1"}}> </div>
         <PastLotteryRoundViewer />
       <div style={{gridColumn: "span 2"}}> </div>
-      <SecondCardColumnWrapper style={{backgroundImage:"url(/images/winninggraph_back.png)",backgroundSize: "100% 100%",padding: "5%",paddingRight: "2%"}}>
+      <SecondCardColumnWrapper>
         <PastDrawsHistoryCard />      
       </SecondCardColumnWrapper>
 	    <div style={{gridColumn: "span 1"}}> </div>

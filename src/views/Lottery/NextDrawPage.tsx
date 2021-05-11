@@ -51,7 +51,7 @@ const NextDrawPage: React.FC = () => {
           <TotalPrizesCard />
         </div>
 	      <div style={{gridColumn: "span 2"}}> </div>
-        <SecondCardColumnWrapper isAWin={isAWin} style={{backgroundImage:'url(/images/lotteryback.png)',backgroundSize: '100% 100%'}}>
+        <SecondCardColumnWrapper isAWin={isAWin}>
           {!account ? (
             <UnlockWalletCard />
           ) : (

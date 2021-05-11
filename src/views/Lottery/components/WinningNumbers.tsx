@@ -17,8 +17,8 @@ const WinningNumbers: React.FC = () => {
   const { colors } = useContext(ThemeContext)
 
   return (
-    <CardWrapper style={{backgroundImage:"url(/images/winningnumber_back.png)",backgroundSize: "100% 100%"}}>
-      <Card>
+    <CardWrapper>
+      <Card style={{ background: "#0061a7"}}>
         <CardBody>
           <StyledCardContentInner>
             <StyledCardHeader>
@@ -32,7 +32,7 @@ const WinningNumbers: React.FC = () => {
             <Row>
               {winNumbers.map((number, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <TicketNumberBox key={index} style={{backgroundImage: "url(/images/winningnumber".concat((index+1).toString()).concat("_back.png")}}>
+                <TicketNumberBox key={index} style={{border: "2px dashed ".concat(colors.warning)}}>
                   <CenteredText>{number}</CenteredText>
                 </TicketNumberBox>
               ))}

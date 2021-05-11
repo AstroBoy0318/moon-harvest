@@ -12,7 +12,7 @@ interface PastRoundCardProps {
 }
 
 const PastRoundCard: React.FC<PastRoundCardProps> = ({ error, data }) => {
-  return <Card style={{borderRadius:"0",backgroundImage:"url(/images/pastlottery_back.png)",backgroundSize: "100% 100%"}}>{error.message ? <PastRoundCardError error={error} /> : <PastRoundCardDetails data={data} />}</Card>
+  return <Card style={{ background: "#0061a7" }}>{error.message ? <PastRoundCardError error={error} /> : <PastRoundCardDetails data={data} />}</Card>
 }
 
 export default PastRoundCard

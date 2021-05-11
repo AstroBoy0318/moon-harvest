@@ -17,7 +17,7 @@ const Blurb = styled(Text)`
 `
 
 const StyledHero = styled.div`
-  background-color: rgba(243,200,102,0.5);
+  background-color: rgba(243,200,102,0.2);
   border-radius: 10px;
   padding-bottom: 40px;
   padding-top: 40px;
@@ -72,8 +72,8 @@ const Hero = () => {
     <StyledHero>
       <StyledContainer>
         <LeftWrapper>
-          <Title>{TranslateString(999, 'The AOF Lottery')}</Title>
-          <Blurb>{TranslateString(999, 'Buy tickets with AOF')}</Blurb>
+          <Title>{TranslateString(999, 'The Hel3 Lottery')}</Title>
+          <Blurb>{TranslateString(999, 'Buy tickets with Hel3')}</Blurb>
           <Blurb>{TranslateString(999, 'Win if 2, 3, or 4 of your ticket numbers match!')}</Blurb>
         </LeftWrapper>
         <RightWrapper>

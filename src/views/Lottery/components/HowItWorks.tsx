@@ -8,8 +8,9 @@ const LayoutWrapper = styled.div`
   margin: 0 auto 40px;
   display: flex;
   flex-direction: column;  
-  background-color: rgba(219,172,88,0.5);
+  background-color: rgba(219,172,88,0.2);
   padding: 0 20px;
+  border-radius: 20px;
 `
 
 const StyledHeading = styled(Heading)`
@@ -33,7 +34,7 @@ const HowItWorks = () => {
       <StyledHeading size="lg" as="h3" color="primary">
         {TranslateString(999, 'How it works')}
       </StyledHeading>
-      <Text fontSize="16px" color="black">
+      <Text fontSize="16px" color="text">
         {TranslateString(
           999,
           'Spend AOF to buy tickets, contributing to the lottery pot. Win prizes if 2, 3, or 4 of your ticket numbers match the winning numbers and their exact order!',

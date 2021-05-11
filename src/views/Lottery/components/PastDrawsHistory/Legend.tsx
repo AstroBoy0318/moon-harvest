@@ -19,7 +19,7 @@ const Circle = styled.div<{ isPoolSize?: boolean }>`
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  background-color: ${({ isPoolSize, theme }) => isPoolSize ?'#0042a4':theme.colors.primary};
+  background-color: ${({ isPoolSize, theme }) => isPoolSize ?theme.colors.warning:theme.colors.secondary};
   margin-right: 6px;
 `
 
@@ -30,11 +30,11 @@ const Legend = () => {
     <Wrapper>
       <LegendItem>
         <Circle isPoolSize />
-        <Text color="#0042a4">{TranslateString(999, 'Pool Size')}</Text>
+        <Text color="warning">{TranslateString(999, 'Pool Size')}</Text>
       </LegendItem>
       <LegendItem>
         <Circle />
-        <Text color="primary">{TranslateString(999, 'Burned')}</Text>
+        <Text color="secondary">{TranslateString(999, 'Burned')}</Text>
       </LegendItem>
     </Wrapper>
   )

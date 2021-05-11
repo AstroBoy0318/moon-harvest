@@ -9,6 +9,7 @@ import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 // import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 import TopBar from './components/TopBar'
+import Refferals from './views/Refferals'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -58,6 +59,9 @@ const App: React.FC = () => {
             {/* </Route> */}
             <Route path="/lottery">
               <Lottery />
+            </Route>
+            <Route path="/refferals">
+              <Refferals />
             </Route>
             {/* <Route path="/ifo"> */}
             {/*  <Ifos /> */}
