@@ -12,7 +12,6 @@ import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
 const StyledCakeStats = styled(Card)`
   text-align: center;
   border-radius: 10px;
-  background: #0061a7;
   ${({ theme }) => theme.mediaQueries.sm} {
     height: max-content;
     margin-top: 50px;
@@ -51,7 +50,7 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody style={{padding: "24px 10px",paddingBottom: "5px"}}>
-        <Heading size="xl" mb="24px" color="text" style={{marginTop: '10px'}}>
+        <Heading size="xl" mb="24px" color="primary" style={{marginTop: '10px'}}>
           Helium 3 Stats
         </Heading>
         <Row>

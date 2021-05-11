@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { BaseLayout, Button, Card, Link } from '@pancakeswap-libs/uikit'
+import { useTotalReferrals, useTotalReferralCommissions } from '../../hooks/useTokenBalance'
 import UnlockButton from '../../components/UnlockButton'
 
 const MainContainer = styled.div`
@@ -44,6 +45,10 @@ const randomStringVal = GetRandomString(50);
 
 const Refferals = () => {
   const { account } = useWallet()
+  const myTotalReferrals = useTotalReferrals(account);
+  const TotalReferrals = myTotalReferrals.toNumber();
+  const myTotalReferralCommissions = useTotalReferralCommissions(account);
+  const TotalReferralCommissions = myTotalReferralCommissions.toNumber();
   const refferalsLink = "https://moonharvest.com/?ref=".concat(randomStringVal)
   const [copyText, setCopyText] = useState("Copy")
   const handleCopy = ()=>{
@@ -73,7 +78,7 @@ const Refferals = () => {
                   Total Referrals
                 </Heading>
                 <Body>
-                  0
+                  {TotalReferrals}
                 </Body>
               </Card>
               <Card>
@@ -81,7 +86,7 @@ const Refferals = () => {
                   Total Referral Commissions
                 </Heading>
                 <Body>
-                  0.0000 Hel3
+                {TotalReferralCommissions}
                 </Body>
               </Card>
               <Card style={{gridColumn: 'span 12'}}>

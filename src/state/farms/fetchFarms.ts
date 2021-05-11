@@ -119,6 +119,7 @@ const fetchFarms = async () => {
         poolWeight: poolWeight.toNumber(),
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
+        harvestInterval: info.harvestInterval,
         Helium3PerBlock: new BigNumber(Helium3PerBlock).toNumber(),
       }
     }),

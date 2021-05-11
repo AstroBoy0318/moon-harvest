@@ -4,7 +4,9 @@ import { Contract } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils'
 import erc20 from 'config/abi/erc20.json'
 import PancakePair from 'config/abi/PancakePair.json'
+import Referral from 'config/abi/referral.json'
 import addresses from 'config/constants/contracts'
+
 
 export const getContract = (provider: ProviderType, address: string) => {
   const web3 = new Web3(provider)
@@ -81,6 +83,38 @@ export const getLpTotalSupply = async (
   
   try {
     const balance: string = await contract.methods.totalSupply().call()
+    return balance
+  } catch (e) {
+    return '0'
+  }
+}
+
+export const getTotalReferrals = async (
+  provider: ProviderType,
+  userAddress: string,
+): Promise<string> => {
+  const web3 = new Web3(provider)
+  const chainId = process.env.REACT_APP_CHAIN_ID
+  const address = addresses.referral[chainId]
+  const contract = new web3.eth.Contract((Referral as unknown) as AbiItem, address)
+  try {
+    const balance: string = await contract.methods.referralsCount(userAddress).call()
+    return balance
+  } catch (e) {
+    return '0'
+  }
+}
+
+export const getTotalReferralCommissions = async (
+  provider: ProviderType,
+  userAddress: string,
+): Promise<string> => {
+  const web3 = new Web3(provider)
+  const chainId = process.env.REACT_APP_CHAIN_ID
+  const address = addresses.referral[chainId]
+  const contract = new web3.eth.Contract((Referral as unknown) as AbiItem, address)
+  try {
+    const balance: string = await contract.methods.totalReferralCommissions(userAddress).call()
     return balance
   } catch (e) {
     return '0'

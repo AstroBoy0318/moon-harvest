@@ -8,7 +8,7 @@ const PastDrawsHistoryCard: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
-    <Card style={{background: "#0061a7"}}>
+    <Card>
       <CardBody>
         <Heading size="md" color="text" style={{textAlign:"center"}}>{TranslateString(999, 'History')}</Heading>
         <Legend />

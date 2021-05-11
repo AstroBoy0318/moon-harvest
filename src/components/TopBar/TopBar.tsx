@@ -15,7 +15,9 @@ const StyledTopBar = styled.div`
   height: 300px;
   width: 100%;
   background-image: url('/images/header.png');
-  background-size: 100% 100%;
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: no-repeat;
   position: relative;
   padding-top: 30px;
   z-index: 1;

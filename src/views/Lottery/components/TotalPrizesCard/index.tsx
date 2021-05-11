@@ -58,7 +58,7 @@ const TotalPrizesCard = () => {
   const { colors } = useContext(ThemeContext)
 
   return (
-    <Card style={{ background: "#0061a7" }}>
+    <Card>
       <CardBody style={{paddingBottom: 0}}>
         {account && (
           <Flex mb="16px" alignItems="center" justifyContent="space-between" style={{ height: '20px',marginBottom: 0,marginTop: '10px' }}>
@@ -76,7 +76,7 @@ const TotalPrizesCard = () => {
               <PancakeRoundIcon />
             </IconWrapper>
             <PrizeCountWrapper>
-              <Text fontSize="22px" color="text" style={{paddingTop: '15px'}}>
+              <Text fontSize="22px" color="primary" style={{paddingTop: '15px'}}>
                 {TranslateString(999, 'Total Pot:')}
               </Text>
               <Heading size="lg" style={{color:colors.text, display:"none"}}>{lotteryPrizeWithCommaSeparators} Hel3</Heading>

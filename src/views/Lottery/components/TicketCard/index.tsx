@@ -60,7 +60,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
 
   return (
     <StyledCard isSecondCard={isSecondCard}>
-      <CardBody style={{ background: "#0061a7"}}>
+      <CardBody>
         <CardHeader style={{justifyContent:"center"}}>
           <IconWrapper color="text">
             <TicketRound />
@@ -74,7 +74,7 @@ const TicketCard: React.FC<CardProps> = ({ isSecondCard = false }) => {
             </TicketCountWrapper>
           ) : (
             <TicketCountWrapper>
-              <Text fontSize="14px" color="text">
+              <Text fontSize="14px" color="primary">
                 {TranslateString(999, 'Your tickets for this round')}
               </Text>
               <Heading size="lg" color="text" style={{textAlign:"center"}}>{ticketsLength}</Heading>

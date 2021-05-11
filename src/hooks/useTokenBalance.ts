@@ -5,7 +5,7 @@ import { provider } from 'web3-core'
 import cakeABI from 'config/abi/cake.json'
 import masterchefABI from 'config/abi/masterchef.json'
 import { getContract } from 'utils/web3'
-import { getTokenBalance, getLpBnbBalance1, getLpBnbBalance2, getLpTotalSupply } from 'utils/erc20'
+import { getTokenBalance, getLpBnbBalance1, getLpBnbBalance2, getLpTotalSupply, getTotalReferrals, getTotalReferralCommissions } from 'utils/erc20'
 import { getCakeAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
@@ -169,6 +169,44 @@ export const useTransferTax = () => {
   }, [slowRefresh])
 
   return totalSupply
+}
+
+export const useTotalReferrals = (tokenAddress: string) => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getTotalReferrals(ethereum, account)
+      setBalance(new BigNumber(res))
+    }
+
+    if (account && ethereum) {
+      fetchBalance()
+    }
+  }, [account, ethereum, tokenAddress, fastRefresh])
+
+  return balance
+}
+
+export const useTotalReferralCommissions = (tokenAddress: string) => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
+  const { fastRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const res = await getTotalReferralCommissions(ethereum, account)
+      setBalance(new BigNumber(res))
+    }
+
+    if (account && ethereum) {
+      fetchBalance()
+    }
+  }, [account, ethereum, tokenAddress, fastRefresh])
+
+  return balance
 }
 
 export default useTokenBalance

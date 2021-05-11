@@ -79,7 +79,7 @@ const PastLotteryRoundViewer = () => {
     <Wrapper>
       <PastLotterySearcher initialLotteryNumber={mostRecentLotteryNumber} onSubmit={handleSubmit} />
       {!isInitialized || isLoading ? (
-        <Card style={{ background: "#0061a7" }}>
+        <Card>
           <StyledCardBody>
             <Loading />
           </StyledCardBody>

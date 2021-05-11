@@ -18,7 +18,7 @@ const WinningNumbers: React.FC = () => {
 
   return (
     <CardWrapper>
-      <Card style={{ background: "#0061a7"}}>
+      <Card>
         <CardBody>
           <StyledCardContentInner>
             <StyledCardHeader>
@@ -32,7 +32,7 @@ const WinningNumbers: React.FC = () => {
             <Row>
               {winNumbers.map((number, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <TicketNumberBox key={index} style={{border: "2px dashed ".concat(colors.warning)}}>
+                <TicketNumberBox key={index} style={{border: "2px dashed ".concat(colors.primary)}}>
                   <CenteredText>{number}</CenteredText>
                 </TicketNumberBox>
               ))}
@@ -57,7 +57,7 @@ const WinningNumbers: React.FC = () => {
                 </CenteredTextWithPadding>
               </RowNoPadding>
             </Column>
-            <Link href="https://bscscan.com/" target="_blank" style={{color:colors.primary,fontSize:"16px",textAlign:"center",textShadow: "0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35,0 0 3px #cd8d35"}}>
+            <Link href="https://bscscan.com/" target="_blank" style={{color:colors.primary,fontSize:"16px",textAlign:"center" }}>
               {TranslateString(448, 'Export recent winning numbers')}
             </Link>
           </StyledCardContentInner>

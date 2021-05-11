@@ -16,7 +16,6 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: #0061a7;
   border-radius: 10px;
   text-align: left;
   height: max-content;
@@ -78,7 +77,7 @@ const FarmedStakingCard = () => {
   return (
     <StyledFarmStakingCard>
       <CardBody>
-        <Heading size="xl" mb="24px" style={{ marginTop: '10px',textAlign: "left" }}>
+        <Heading size="xl" mb="24px" style={{ marginTop: '10px',textAlign: "left" }} color="primary">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
         <img src="/images/he3.png" alt="He3" style={{ width: "70px",marginBottom: "1em" }}/>
@@ -112,7 +111,7 @@ const FarmedStakingCard = () => {
               fullWidth
             >
               {pendingTx
-                ? TranslateString(548, 'Collecting AOF')
+                ? TranslateString(548, 'Collecting Hel3')
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (

@@ -25,6 +25,9 @@ const ExternalLinkWrap = styled(LinkExternal)`
   justify-content: center;
   text-decoration: none;
   width: 100%;
+  & > svg{
+    fill: ${({ theme }) => theme.colors.primary}
+  }
 `
 
 const TicketCard: React.FC<{ contractLink?: string; lotteryNumber?: number }> = ({ contractLink, lotteryNumber }) => {
@@ -50,7 +53,7 @@ const TicketCard: React.FC<{ contractLink?: string; lotteryNumber?: number }> = 
         </Button>
       </div>
       <div>
-        <ExternalLinkWrap href={contractLink}>{TranslateString(999, 'View on BscScan')}</ExternalLinkWrap>
+        <ExternalLinkWrap color="primary" href={contractLink}>{TranslateString(999, 'View on BscScan')}</ExternalLinkWrap>
       </div>
     </Wrapper>
   )

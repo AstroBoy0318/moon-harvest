@@ -9,13 +9,13 @@ import { TranslateString } from '../../../utils/translateTextHelpers'
 const CakeWinnings = () => {
 	const { account } = useWallet()
   const { claimAmount } = useTotalClaim()
-  if (!account) {
+  /* if (!account) {
     return (
       <Text color="text" style={{ lineHeight: '50px',fontSize:"35px" }}>
         {TranslateString(298, 'Locked')}
       </Text>
     )
-  }
+  } */
   return <CardValue value={getBalanceNumber(claimAmount)} fontSize="35px"/>
 }
 

@@ -7,7 +7,6 @@ import PrizesWonContent from './PrizesWonContent'
 import NoPrizesContent from './NoPrizesContent'
 
 const StyledCard = styled(Card)`
-  background: #0061a7;
   margin-bottom: 7%;
   margin-left: 6%;
   margin-right: 4%;

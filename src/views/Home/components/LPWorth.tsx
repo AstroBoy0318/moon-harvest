@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Heading } from '@pancakeswap-libs/uikit'
+import { Card, Heading } from '@pancakeswap-libs/uikit'
 import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply } from 'hooks/useTokenBalance'
 import { useFarms, usePriceBnbBusd } from '../../../state/hooks'
 
-const MainContainer = styled.div`
-  background: #0061a7;
+const MainContainer = styled(Card)`
   border-radius: 10px;
   padding: 24px;
 `
@@ -27,8 +26,7 @@ const LPWorth = () => {
   const [hel3Bnb,setHel3Bnb] = useState(0)
 
   const bnbPrice = usePriceBnbBusd();
-  // const bnbPricevalue = bnbPrice.toNumber()
-  const bnbPricevalue = 660
+  const bnbPricevalue = bnbPrice.toNumber()
 
   const lpBnb1 = useLPBnbamount1();  
   const lpBnbamount1 = lpBnb1.toNumber()
@@ -51,7 +49,7 @@ const LPWorth = () => {
 
   return (
     <MainContainer>
-      <Heading color="text" size="xl" style={{ width:"100%",textAlign: "center" }}>Helium 3 LP Worth</Heading>
+      <Heading color="primary" size="xl" style={{ width:"100%",textAlign: "center" }}>Helium 3 LP Worth</Heading>
       <div style={{width: "80%",margin: "0 auto", marginTop: "3em"}}>
       <ItemDiv>
         <LabelDiv>

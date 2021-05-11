@@ -12,7 +12,7 @@ const CakeHarvestBalance = ({earningsSum}) => {
 
   if (!account) {
     return (
-      <Text color="text" style={{ lineHeight: '50px',fontSize: "40px" }}>
+      <Text color="secondary" style={{ lineHeight: '30px' }}>
         {TranslateString(298, 'Locked')}
       </Text>
     )

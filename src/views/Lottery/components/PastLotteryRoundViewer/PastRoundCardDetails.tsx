@@ -21,7 +21,7 @@ const CardHeading = styled.div`
 
 const TopLotteryCardHeading = styled(LotteryCardHeading)`
   margin-bottom: ${(props) => props.theme.spacing[2]}px;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primary};
 `
 
 const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => {
@@ -42,12 +42,14 @@ const PastRoundCardDetails: React.FC<PastRoundCardDetailsProps> = ({ data }) => 
     !data.error &&
     data && (
       <>
-        <CardBody style={{padding: "45px 13% 0 10%"}}>
+        <CardBody style={{padding: "24px 24px 0 24px"}}>
           <CardHeading>
-            <Timestamp timeValue={lotteryDate} />
-            <Heading size="lg" color="text" style={{textAlign:"center",width: "53%",margin: "0 auto"}}>
-              Round Number {lotteryNumber}
-            </Heading>
+            <div style={{marginBottom: "2em"}}>
+              <Timestamp timeValue={lotteryDate} />
+              <Heading size="md" color="primary" style={{textAlign:"left",width: "53%"}}>
+                Round #{lotteryNumber}
+              </Heading>
+            </div>
             <TopLotteryCardHeading
               valueToDisplay={`${lotteryNumbers[0]}, ${lotteryNumbers[1]}, ${lotteryNumbers[2]}, ${lotteryNumbers[3]}`}
               Icon={TicketRound}

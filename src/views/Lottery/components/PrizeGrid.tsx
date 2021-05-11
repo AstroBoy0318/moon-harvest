@@ -15,8 +15,6 @@ const Grid = styled.div<{ pastDraw?: boolean }>`
   display: grid;
   grid-template-columns: repeat(${(props) => (props.pastDraw ? 3 : 2)}, 1fr);
   grid-template-rows: repeat(4, auto);
-  padding:0 10%;
-  font-family: Por Siempre Gti;
   & > div{
     margin-bottom: 0;
   }
@@ -54,19 +52,19 @@ const PrizeGrid: React.FC<PrizeGridProps> = ({
   return (
     <Grid pastDraw={pastDraw}>
       <GridItem>
-        <Text fontSize="16px" color="text">
+        <Text fontSize="16px" color="primary">
           {TranslateString(999, 'No. Matched')}
         </Text>
       </GridItem>
       {pastDraw && (
         <PastDrawGridItem>
-          <RightAlignedText fontSize="16px" color="text">
+          <RightAlignedText fontSize="16px" color="primary">
             {TranslateString(999, 'Winners')}
           </RightAlignedText>
         </PastDrawGridItem>
       )}
       <GridItem>
-        <RightAlignedText fontSize="16px" color="text">
+        <RightAlignedText fontSize="16px" color="primary">
           {TranslateString(999, 'Prize Pot')}
         </RightAlignedText>
       </GridItem>

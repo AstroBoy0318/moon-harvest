@@ -12,12 +12,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: inherit;
   }
   @font-face {
-    font-family: "Futura";
-    src: url(/fonts/futura/FuturaHeavyfont.ttf);
+    font-family: "Mitr";
+    src: url(/fonts/mitr/MitrRegular400.ttf);
   }  
   body {
     background-color: ${({ theme }) => theme.colors.background};
-    font-family: "Futura";
+    font-family: Mitr;
 
     img {
       height: auto;

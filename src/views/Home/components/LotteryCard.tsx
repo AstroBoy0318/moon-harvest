@@ -13,9 +13,9 @@ import BuyModal from 'views/Lottery/components/TicketCard/BuyTicketModal'
 import CakeWinnings from './CakeWinnings'
 import LotteryJackpot from './LotteryJackpot'
 import UnlockButton from '../../../components/UnlockButton'
+import Spacer from '../../../components/Spacer'
 
 const StyledLotteryCard = styled(Card)`
-  background: #0061a7;
   border-radius: 10px;
   text-align: center;
   width: 100%;
@@ -33,7 +33,7 @@ const Label = styled.div`
 `
 const Actions = styled.div`
  display: flex;
- margin-top: 33%;
+ margin-top: 22%;
  button {
    flex: 1 0 50%;
  }
@@ -84,21 +84,30 @@ const FarmedStakingCard = () => {
   return (
     <StyledLotteryCard>
       <CardBody>
-        <Heading mb="20px" color="text" style={{width: "min(100%,14em)", margin: "0 auto", marginTop: '10px' }} size="xl">
+        <Heading mb="20px" color="primary" style={{width: "min(100%,14em)", margin: "0 auto", marginTop: '10px' }} size="xl">
           {TranslateString(550, 'moon harvest lottery desk')}
         </Heading>
         <Block>
           <Row>
-            <Left>
-              <CakeWinnings />
-              <Label>HELIUM3 to Collect</Label>
-            </Left>
-            <Right>
-              <LotteryJackpot />
-              <Label>{TranslateString(554, 'Total jackpot this round')}</Label>
-            </Right>
+            <CakeWinnings />
+          </Row>
+          <Row>
+            <Label>HELIUM3 to Collect</Label>
+          </Row>
+          <Row>
+            <LotteryJackpot />
+          </Row>
+          <Row>
+            <Label>{TranslateString(554, 'Total jackpot this round')}</Label>
           </Row>
         </Block>
+        {account?
+          <>
+            <Spacer size="md"/>
+            <Spacer size="sm"/>
+            </> :
+          <></>
+        }
       <Actions>
         {account ? (
           <>
@@ -107,7 +116,6 @@ const FarmedStakingCard = () => {
               disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
               // onClick={handleClaim}
               style={{ marginRight: '8px' }}
-              className="imgBtn"
             >
               {TranslateString(556, 'Collect Winnings')}
             </Button>
@@ -118,7 +126,7 @@ const FarmedStakingCard = () => {
           </>
           ):(
             <div style={{margin:"0 auto"}}>
-              <UnlockButton className="imgBtn"/>
+              <UnlockButton />
             </div>
           )}
       </Actions>

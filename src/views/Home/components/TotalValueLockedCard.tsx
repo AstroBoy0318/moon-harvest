@@ -7,7 +7,6 @@ import { useTotalValue } from '../../../state/hooks'
 import CardValue from './CardValue'
 
 const StyledTotalValueLockedCard = styled(Card)`
-  background: #0061a7;
   text-align: center;
   border-radius: 10px;
 
@@ -30,7 +29,7 @@ const TotalValueLockedCard = () => {
   return (
     <StyledTotalValueLockedCard>
       <CardBody>
-        <Heading color="text" size="xl">
+        <Heading color="primary" size="xl">
           {TranslateString(999, 'Total Value Locked (TVL)')}
         </Heading>
 	      <CardMidContent color="text">

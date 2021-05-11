@@ -56,7 +56,7 @@ const StyledCardAccent = styled.div`
 
 const FCard = styled.div`
   align-self: baseline;  
-  background: #0061a7;
+  background: ${({ theme }) => theme.colors.card};
   border-radius: 32px;
   display: flex;
   flex-direction: column;
@@ -126,7 +126,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     : '-'
 
   const lpLabel = farm.lpSymbol
-  const earnLabel = 'AOF'
+  const earnLabel = 'He3'
   const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -136,7 +136,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   return (
     <FCard>
-      {farm.tokenSymbol === 'HEL3' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'EGG' && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
@@ -149,8 +149,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
     {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
-          <Text bold style={{fontFamily:"Por Siempre Gti"}} fontSize="20px">{TranslateString(352, 'APY')}:</Text>
-          <Text bold style={{ display: 'flex', alignItems: 'center',fontFamily:"Por Siempre Gti" }} fontSize="20px">
+          <Text bold fontSize="20px">{TranslateString(352, 'APY')}:</Text>
+          <Text bold style={{ display: 'flex', alignItems: 'center' }} fontSize="20px">
             {farm.apy ? (
               <>
                 <ApyButton
@@ -176,6 +176,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       <Flex justifyContent='space-between'>
         <Text style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
         <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
+      </Flex>
+      <Flex justifyContent='space-between'>
+        <Text style={{ fontSize: '15px' }}>Harvest Lockup</Text>
+        <Text bold style={{ fontSize: '15px' }}>{(farm.harvestInterval / 3600)}hours</Text>
       </Flex>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
       <Divider />
