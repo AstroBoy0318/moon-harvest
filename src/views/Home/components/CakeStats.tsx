@@ -10,8 +10,10 @@ import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
 
 const StyledCakeStats = styled(Card)`
+  grid-row-start: 2;
+  grid-row-end: 4;
   text-align: center;
-  border-radius: 10px;
+  height: auto !important;
   ${({ theme }) => theme.mediaQueries.sm} {
     height: max-content;
     margin-top: 50px;

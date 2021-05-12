@@ -12,14 +12,14 @@ const TopBar: React.FC = () => {
 }
 
 const StyledTopBar = styled.div`
-  height: 300px;
+  height: 260px;
   width: 100%;
   background-image: url('/images/header.png');
   background-size: 100% auto;
   background-position: top;
   background-repeat: no-repeat;
   position: relative;
-  padding-top: 30px;
+  padding-top: 5%;
   z-index: 1;
   @media (max-width: 968px) {
     background-size: auto 100%;

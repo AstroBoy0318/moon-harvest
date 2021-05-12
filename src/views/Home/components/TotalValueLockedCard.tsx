@@ -8,7 +8,6 @@ import CardValue from './CardValue'
 
 const StyledTotalValueLockedCard = styled(Card)`
   text-align: center;
-  border-radius: 10px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     max-width: none;

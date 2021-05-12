@@ -1991,6 +1991,16 @@ var Icon$Lt = function (props) {
       React.createElement("path", { d: "M3,4H7V8H3V4M9,5V7H21V5H9M3,10H7V14H3V10M9,11V13H21V11H9M3,16H7V20H3V16M9,17V19H21V17H9" })));
 };
 
+var Icon$Doc = function (props) {
+    return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
+      React.createElement("path", { d: "M10.802 17.77a.703.703 0 11-.002 1.406.703.703 0 01.002-1.406m11.024-4.347a.703.703 0 11.001-1.406.703.703 0 01-.001 1.406m0-2.876a2.176 2.176 0 00-2.174 2.174c0 .233.039.465.115.691l-7.181 3.823a2.165 2.165 0 00-1.784-.937c-.829 0-1.584.475-1.95 1.216l-6.451-3.402c-.682-.358-1.192-1.48-1.138-2.502.028-.533.212-.947.493-1.107.178-.1.392-.092.62.027l.042.023c1.71.9 7.304 3.847 7.54 3.956.363.169.565.237 1.185-.057l11.564-6.014c.17-.064.368-.227.368-.474 0-.342-.354-.477-.355-.477-.658-.315-1.669-.788-2.655-1.25-2.108-.987-4.497-2.105-5.546-2.655-.906-.474-1.635-.074-1.765.006l-.252.125C7.78 6.048 1.46 9.178 1.1 9.397.457 9.789.058 10.57.006 11.539c-.08 1.537.703 3.14 1.824 3.727l6.822 3.518a2.175 2.175 0 002.15 1.862 2.177 2.177 0 002.173-2.14l7.514-4.073c.38.298.853.461 1.337.461A2.176 2.176 0 0024 12.72a2.176 2.176 0 00-2.174-2.174" })));
+};
+
+var Icon$Md = function (props) {
+    return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
+      React.createElement("path", { d: "m7.996 21.324c0 .695-.521.982-1.098.695l-6.228-3.113c-.188-.089-.346-.238-.475-.447s-.195-.417-.195-.622v-15.227c0-.568.341-.825 1.112-.441l6.844 3.42c.099.099.026-.581.04 15.735zm.857-14.32 7.152 11.568-7.152-3.553zm15.147.241v14.079c0 .223-.062.403-.188.541-.125.138-.295.207-.509.207s-.424-.058-.629-.174l-5.906-2.939zm-.04-1.603c0 .027-1.145 1.895-3.435 5.603s-3.632 5.88-4.025 6.512l-5.223-8.469 4.339-7.039c.236-.388.72-.456 1.045-.294l7.246 3.607c.035.017.053.044.053.08z" })));
+};
+
 var IconModule = /*#__PURE__*/Object.freeze({
     __proto__: null,
     FarmIcon: Icon$I,
@@ -2020,6 +2030,8 @@ var IconModule = /*#__PURE__*/Object.freeze({
     RoadmapIcon: Icon$12,
     PriceGuardIcon: Icon$P,
     ListingIcon: Icon$Lt,
+    DocIcon: Icon$Doc,
+    MediumIcon: Icon$Md,
 });
 
 var MenuButton = styled(Button)(templateObject_1$x || (templateObject_1$x = __makeTemplateObject(["\n  color: ", ";\n  padding: 0 8px;\n  border-radius: 8px;\n"], ["\n  color: ", ";\n  padding: 0 8px;\n  border-radius: 8px;\n"])), function (_a) {
@@ -2172,6 +2184,21 @@ var socials = [
         href: "https://github.com/goosedefi",
     },
     {
+        label: "Docs",
+        icon: "DocIcon",
+        href: "https://github.com/goosedefi",
+    },
+    {
+        label: "Medium",
+        icon: "MediumIcon",
+        href: "https://www.reddit.com/r/GooseFinanceofficial",
+    },
+    {
+        label: "Twitter",
+        icon: "TwitterIcon",
+        href: "https://twitter.com/FinanceGoose",
+    },
+    {
         label: "Telegram",
         icon: "TelegramIcon",
         items: [
@@ -2228,16 +2255,6 @@ var socials = [
                 href: "https://t.me/BinanceRocketEGG",
             },
         ],
-    },
-    {
-        label: "Twitter",
-        icon: "TwitterIcon",
-        href: "https://twitter.com/FinanceGoose",
-    },
-    {
-        label: "Reddit",
-        icon: "RedditIcon",
-        href: "https://www.reddit.com/r/GooseFinanceofficial",
     },
 ];
 var MENU_HEIGHT = 110;
@@ -2366,7 +2383,7 @@ var PanelFooter = function (_a) {
             cakePriceUsd ? (React.createElement(PriceLink, { href: priceLink, target: "_blank" },
                 React.createElement(Icon$v, { width: "24px", mr: "8px" }),
                 React.createElement(Text, { color: "text", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React.createElement(Skeleton, { width: 80, height: 24 })),
-            React.createElement(Flex, { style:{marginTop: "1em",justifyContent: "flex-end" } }, socials.map(function (social, index) {
+            React.createElement(Flex, { style:{marginTop: "1em",justifyContent: "space-between" } }, socials.map(function (social, index) {
                 var Icon = Icons$1[social.icon];
                 var iconProps = { width: "24px", color: "primary", style: { cursor: "pointer" } };
                 var mr = index < socials.length - 1 ? "8px" : 0;

@@ -5,7 +5,6 @@ import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply } from 'hooks/useTo
 import { useFarms, usePriceBnbBusd } from '../../../state/hooks'
 
 const MainContainer = styled(Card)`
-  border-radius: 10px;
   padding: 24px;
 `
 

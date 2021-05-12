@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { Card, Heading } from '@pancakeswap-libs/uikit'
 
 const MainContainer = styled(Card)`
-  grid-row-start: 2;
-  grid-row-end: 5;
-  border-radius: 10px;
+  /* grid-row-start: 2;
+  grid-row-end: 5; */
   padding: 24px;
 `
 
