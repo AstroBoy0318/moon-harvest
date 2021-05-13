@@ -1,12 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Button, Card, Heading, Text } from '@pancakeswap-libs/uikit'
-import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply1, useGetTotalSupply2 } from 'hooks/useTokenBalance'
-import { useWallet } from "@binance-chain/bsc-use-wallet"
-import { useFarms, usePriceBnbBusd } from '../../../state/hooks'
 import { useCake } from '../../../hooks/useContract'
-import { getWeb3, httpProvider } from '../../../utils/web3'
-import useWeb3 from '../../../hooks/useWeb3'
+import { getWeb3 } from '../../../utils/web3'
 
 const MainContainer = styled(Card)`
   padding: 24px;
