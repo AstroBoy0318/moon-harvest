@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Mitr";
     src: url(/fonts/mitr/MitrRegular400.ttf);
   }  
+  @font-face {
+    font-family: "Futura_Bold";
+    src: url(/fonts/mitr/Futura Bold font.ttf);
+  } 
   body {
     background-color: ${({ theme }) => theme.colors.background};
     font-family: Mitr;

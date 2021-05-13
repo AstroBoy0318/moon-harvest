@@ -9,6 +9,7 @@ import { ThemeContextProvider } from 'contexts/ThemeContext'
 import { BlockContextProvider } from 'contexts/BlockContext'
 import { RefreshContextProvider } from 'contexts/RefreshContext'
 import store from 'state'
+import { RefferalContextProvider } from './contexts/RefferalContext'
 
 const Providers: React.FC = ({ children }) => {
   const rpcUrl = getRpcUrl()
@@ -26,7 +27,9 @@ const Providers: React.FC = ({ children }) => {
           >
             <BlockContextProvider>
               <RefreshContextProvider>
-                <ModalProvider>{children}</ModalProvider>
+                <RefferalContextProvider>
+                  <ModalProvider>{children}</ModalProvider>
+                </RefferalContextProvider>
               </RefreshContextProvider>
             </BlockContextProvider>
           </bsc.UseWalletProvider>

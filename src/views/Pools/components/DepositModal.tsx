@@ -55,7 +55,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
       <Input
         onChange={handleAddressChange}
         value=""
-        placeholder="Address"
+        placeholder="Referrer Address"
       />
       <ModalActions>
         <Button fullWidth variant="secondary" onClick={onDismiss}>

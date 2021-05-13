@@ -6,7 +6,7 @@ const TopBar: React.FC = () => {
   return (
     <StyledTopBar>
       <div style={{fontSize: "40px", color: theme.colors.text, textAlign: "center"}}>moon harvest</div>
-      <div style={{fontSize: "16px", color: theme.colors.text, textAlign: "center", marginTop: "1em"}}>The first Auto Liquidity Aquisition Yield farm in Space</div>
+      <div style={{fontSize: "16px", color: theme.colors.text, textAlign: "center", marginTop: "1em"}}>The first Space based Auto Liquidity Aquisition Yield Farm</div>
     </StyledTopBar>
   )
 }
@@ -24,7 +24,7 @@ const StyledTopBar = styled.div`
   @media (max-width: 968px) {
     background-size: auto 100%;
     background-position: center;
-    padding-top: 65px;
+    padding-top: 100px;
   }
 `
 

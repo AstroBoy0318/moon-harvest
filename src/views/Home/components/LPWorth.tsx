@@ -52,7 +52,7 @@ const LPWorth = () => {
       <div style={{width: "80%",margin: "0 auto", marginTop: "3em"}}>
       <ItemDiv>
         <LabelDiv>
-          Hel3-BNB
+          HE3-BNB
         </LabelDiv>
         <ValueDiv>
           ${ showlpprice1 }
@@ -60,7 +60,7 @@ const LPWorth = () => {
       </ItemDiv>
         <ItemDiv>
           <LabelDiv>
-            Hel3-BUSD
+            HE3-BUSD
           </LabelDiv>
           <ValueDiv>
             ${ showlpprice2 }

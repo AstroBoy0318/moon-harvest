@@ -11,6 +11,7 @@ import EarnAssetCard from './components/EarnAssetCard'
 import WinCard from './components/WinCard'
 import Announcement from './components/Announcement'
 import LPWorth from './components/LPWorth'
+import AddTokenCard from './components/AddTokenCard'
 
 const Hero = styled.div`
   align-items: center;
@@ -79,6 +80,7 @@ const Home: React.FC = () => {
           <CakeStats />
           <LPWorth />
           <TotalValueLockedCard />
+          <AddTokenCard />
 	      </Cards>
       </div>
     </Page>

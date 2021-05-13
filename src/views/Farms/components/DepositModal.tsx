@@ -8,6 +8,7 @@ import { getFullDisplayBalance } from 'utils/formatBalance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import Input from '../../../components/Input'
 import Spacer from '../../../components/Spacer'
+import { RefferalContext } from '../../../contexts/RefferalContext'
 
 interface DepositModalProps {
   max: BigNumber
@@ -19,10 +20,10 @@ interface DepositModalProps {
 
 const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' , depositFeeBP = 0}) => {
   const [val, setVal] = useState('')
-  const [address, setAddress] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const { account } = useWallet()
   const TranslateString = useI18n()
+  const { refferalAddress } = useContext(RefferalContext)
   const fullBalance = useMemo(() => {
     return getFullDisplayBalance(max)
   }, [max])
@@ -38,13 +39,6 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
     setVal(fullBalance)
   }, [fullBalance, setVal])
 
-  const handleAddressChange = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
-      setAddress(e.currentTarget.value)
-    },
-    [setAddress],
-  )
-
   return (
     <Modal title={`${TranslateString(316, 'Deposit')} ${tokenName} Tokens`} onDismiss={onDismiss}>
       <TokenInput
@@ -56,11 +50,6 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
         depositFeeBP={depositFeeBP}
       />
       <Spacer size="sm"/>
-      <Input
-        onChange={handleAddressChange}
-        value={address}
-        placeholder="Address"
-        />
       <ModalActions>
         <Button variant="primary" onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
@@ -69,7 +58,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
           disabled={pendingTx || val === ''}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm(val,(address===""?account:address))
+            await onConfirm(val,(refferalAddress===""?account:refferalAddress))
             setPendingTx(false)
             onDismiss()
           }}

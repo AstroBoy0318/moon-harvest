@@ -45,30 +45,30 @@ const config: MenuEntry[] = [
     icon: 'GroupsIcon',
     href: '/refferals',
   },
-  {
-    label: "Audits",
-    icon: "AuditIcon",
-    href: "https://docs.pantherswap.com/security/audits"
-  },
+  // {
+  //   label: "Audits",
+  //   icon: "AuditIcon",
+  //   href: "https://docs.moonharvest.net/"
+  // },
   {
     label: 'Features',
     icon: 'PriceGuardIcon',
     items: [
       {
         label: 'Automatic LP',
-        href: 'https://docs.pantherswap.com/tokenomics/automatic-liquidity',
+        href: 'https://docs.moonharvest.net/untitled-1',
       },
       {
         label: 'Automatic Burning',
-        href: 'https://docs.pantherswap.com/tokenomics/automatic-burning',
+        href: 'https://docs.moonharvest.net/automatic-burning',
       },
       {
-        label: 'Harvest Lockup',
-        href: 'https://docs.pantherswap.com/tokenomics/harvest-lockup',
+        label: 'Referral Program',
+        href: 'https://docs.moonharvest.net/referral-program',
       },
       {
         label: 'Anti Whale',
-        href: 'https://docs.pantherswap.com/tokenomics/anti-whale',
+        href: 'https://docs.moonharvest.net/anti-whale',
       },
     ],
   },
@@ -80,22 +80,22 @@ const config: MenuEntry[] = [
         label: 'BscScan',
         href: 'https://bscscan.com/address/0x9364d5df826c588866d9eada82eca5199539b2dc',
       },
-      {
-        label: 'DappRadar',
-        href: 'https://dappradar.com/binance-smart-chain/defi/pantherswap',
-      },
-      {
-        label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/pantherswap',
-      },
-      {
-        label: 'LiveCoinWatch',
-        href: 'https://www.livecoinwatch.com/price/PantherSwap-PANTHER',
-      },
-      {
-        label: 'Vfat',
-        href: 'https://vfat.tools/bsc/panther/',
-      },
+      // {
+      //   label: 'DappRadar',
+      //   href: 'https://dappradar.com/binance-smart-chain/defi/moonharvest',
+      // },
+      // {
+      //   label: 'CoinGecko',
+      //   href: 'https://www.coingecko.com/en/coins/moonharvest',
+      // },
+      // {
+      //   label: 'LiveCoinWatch',
+      //   href: 'https://www.livecoinwatch.com/price/PantherSwap-PANTHER',
+      // },
+      // {
+      //   label: 'Vfat',
+      //   href: 'https://vfat.tools/bsc/moonharvest/',
+      // },
     ],
   },
   // {
@@ -125,52 +125,52 @@ const config: MenuEntry[] = [
       },
     ],
   }, */
-  {
-    label: 'Analytic',
-    icon: 'InfoIcon',
-    items: [
-      {
-        label: 'Overview',
-        href: 'https://pantherswap.info/',
-      },
-      {
-        label: 'Tokens',
-        href: 'https://pantherswap.info/tokens',
-      },
-      {
-        label: 'Pairs',
-        href: 'https://pantherswap.info/pairs',
-      },
-      {
-        label: 'Accounts',
-        href: 'https://pantherswap.info/accounts',
-      },
-    ],
-  },
+  // {
+  //   label: 'Analytic',
+  //   icon: 'InfoIcon',
+  //   items: [
+  //     {
+  //       label: 'Overview',
+  //       href: 'https://pantherswap.info/',
+  //     },
+  //     {
+  //       label: 'Tokens',
+  //       href: 'https://pantherswap.info/tokens',
+  //     },
+  //     {
+  //       label: 'Pairs',
+  //       href: 'https://pantherswap.info/pairs',
+  //     },
+  //     {
+  //       label: 'Accounts',
+  //       href: 'https://pantherswap.info/accounts',
+  //     },
+  //   ],
+  // },
   {
     label: 'More',
     icon: 'MoreIcon',
     items: [
       {
         label: 'Github',
-        href: 'https://github.com/goosedefi/',
+        href: 'https://github.com/MoonHarvest/',
       },
       {
         label: 'Docs',
-        href: 'https://goosedefi.gitbook.io/goose-finance/',
+        href: 'https://docs.moonharvest.net/',
       },
       {
         label: 'Roadmap',
-        href: 'https://docs.pantherswap.com/roadmap',
+        href: 'https://docs.moonharvest.net/roadmap',
       },
       {
         label: 'Blog',
-        href: 'https://goosefinance.medium.com/',
+        href: 'https://moonharvestnet.medium.com',
       },
-      {
-        label: 'Voting',
-        href: 'https://voting.pantherswap.com/',
-      },
+      // {
+      //   label: 'Voting',
+      //   href: '#',
+      // },
     ],
   },
   /* {

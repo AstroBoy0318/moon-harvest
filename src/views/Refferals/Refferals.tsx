@@ -30,26 +30,13 @@ const Body = styled.div`
   padding: 24px;
 `
 
-const GetRandomString = (len)=>{
-  const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let randomString = '';
-  let randomPoz = null;
-  for (let i = 0; i < len; i++) {
-    randomPoz = Math.floor(Math.random() * charSet.length);
-    randomString += charSet.substring(randomPoz,randomPoz+1);
-  }
-  return randomString;
-}
-
-const randomStringVal = GetRandomString(50);
-
 const Refferals = () => {
   const { account } = useWallet()
   const myTotalReferrals = useTotalReferrals(account);
   const TotalReferrals = myTotalReferrals.toNumber();
   const myTotalReferralCommissions = useTotalReferralCommissions(account);
   const TotalReferralCommissions = myTotalReferralCommissions.toNumber();
-  const refferalsLink = "https://moonharvest.com/?ref=".concat(randomStringVal)
+  const refferalsLink = "http://moonharvest.net/?ref=".concat(btoa(account))
   const [copyText, setCopyText] = useState("Copy")
   const handleCopy = ()=>{
     if (navigator.clipboard) {
