@@ -5,12 +5,12 @@ const farms: FarmConfig[] = [
   {
     pid: 0,
     risk: 5,
-    lpSymbol: 'He3-BNB LP',
+    lpSymbol: 'HE3-BNB LP',
     lpAddresses: {
       97: '',
       56: '0x9600971287A167560AF95fCeA1CeD86eDFe530e7',
     },
-    tokenSymbol: 'EGG',
+    tokenSymbol: 'HE3',
     tokenAddresses: {
       97: '',
       56: '0x9364d5DF826c588866D9eada82eCa5199539B2dc',
@@ -21,12 +21,12 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     risk: 5,
-    lpSymbol: 'He3-BUSD LP',
+    lpSymbol: 'HE3-BUSD LP',
     lpAddresses: {
       97: '',
       56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
     },
-    tokenSymbol: 'EGG',
+    tokenSymbol: 'HE3',
     tokenAddresses: {
       97: '',
       56: '0x9364d5DF826c588866D9eada82eCa5199539B2dc',
@@ -38,12 +38,12 @@ const farms: FarmConfig[] = [
     pid: 2,
     risk: 5,
     isTokenOnly: true,
-    lpSymbol: 'He3',
+    lpSymbol: 'HE3',
     lpAddresses: {
       97: '',
       56: '0x9364d5DF826c588866D9eada82eCa5199539B2dc', // EGG-BUSD LP
     },
-    tokenSymbol: 'EGG',
+    tokenSymbol: 'HE3',
     tokenAddresses: {
       97: '',
       56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',

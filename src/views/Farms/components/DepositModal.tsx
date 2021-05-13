@@ -5,7 +5,7 @@ import ModalActions from 'components/ModalActions'
 import TokenInput from 'components/TokenInput'
 import useI18n from 'hooks/useI18n'
 import { getFullDisplayBalance } from 'utils/formatBalance'
-import { ThemeContext } from 'styled-components'
+import { useWallet } from '@binance-chain/bsc-use-wallet'
 import Input from '../../../components/Input'
 import Spacer from '../../../components/Spacer'
 
@@ -21,8 +21,8 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   const [val, setVal] = useState('')
   const [address, setAddress] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
+  const { account } = useWallet()
   const TranslateString = useI18n()
-  const theme = useContext(ThemeContext)
   const fullBalance = useMemo(() => {
     return getFullDisplayBalance(max)
   }, [max])
@@ -58,22 +58,21 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
       <Spacer size="sm"/>
       <Input
         onChange={handleAddressChange}
-        value=""
+        value={address}
         placeholder="Address"
         />
       <ModalActions>
-        <Button variant="primary" onClick={onDismiss} style={{border: "1px solid ".concat(theme.colors.text)}}>
+        <Button variant="primary" onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
         </Button>
         <Button
-          disabled={pendingTx}
+          disabled={pendingTx || val === ''}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm(val,address)
+            await onConfirm(val,(address===""?account:address))
             setPendingTx(false)
             onDismiss()
           }}
-          style={{border: "1px solid ".concat(theme.colors.text)}}
         >
           {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(464, 'Confirm')}
         </Button>

@@ -10,8 +10,8 @@ import CardValue from './CardValue'
 import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
 
 const StyledCakeStats = styled(Card)`
-  grid-row-start: 2;
-  grid-row-end: 4;
+  // grid-row-start: 2;
+  // grid-row-end: 4;
   text-align: center;
   height: auto !important;
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -37,7 +37,7 @@ const CakeStats = () => {
   const totalLockedRewards = useTotalLockedRewards()
   const maxTxAmount = useMaxTxAmount()
   const transferTax = useTransferTax()
-  const transferTaxvalue = (getBalanceNumber(transferTax))*1000000000000000000
+  const transferTaxvalue = (getBalanceNumber(transferTax))*100000000000000000
   const farms = useFarms();
   const eggPrice = usePriceCakeBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
@@ -52,11 +52,11 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody style={{padding: "24px 10px",paddingBottom: "5px"}}>
-        <Heading size="xl" mb="24px" color="primary" style={{marginTop: '10px'}}>
+        <Heading size="xl" mb="24px" color="primary" style={{marginTop: '10px', marginBottom: '70px'}}>
           Helium 3 Stats
         </Heading>
         <Row>
-          <Text fontSize="14px" color="text">Total He3 Supply</Text>
+          <Text fontSize="14px" color="text">Total HE3 Supply</Text>
           <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
         </Row>
         <Row>
@@ -80,7 +80,7 @@ const CakeStats = () => {
           {maxTxAmount && <CardValue fontSize="14px" value={getBalanceNumber(maxTxAmount)} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px" color="text">New He3/block</Text>
+          <Text fontSize="14px" color="text">New HE3/block</Text>
           <Text bold fontSize="14px">{Helium3PerBlock}</Text>
         </Row>
         <Row>

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { Card, Heading } from '@pancakeswap-libs/uikit'
-import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply } from 'hooks/useTokenBalance'
+import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply1, useGetTotalSupply2 } from 'hooks/useTokenBalance'
 import { useFarms, usePriceBnbBusd } from '../../../state/hooks'
 
 const MainContainer = styled(Card)`
@@ -30,7 +30,7 @@ const LPWorth = () => {
   const lpBnb1 = useLPBnbamount1();  
   const lpBnbamount1 = lpBnb1.toNumber()
 
-  const lptotalsupply1 = useGetTotalSupply();
+  const lptotalsupply1 = useGetTotalSupply1();
   const lptotalsupplyamount1 = lptotalsupply1.toNumber()
 
   const lpprice1 = (bnbPricevalue*lpBnbamount1*2)/lptotalsupplyamount1
@@ -39,7 +39,7 @@ const LPWorth = () => {
   const lpBnb2 = useLPBnbamount2();  
   const lpBnbamount2 = lpBnb2.toNumber()
 
-  const lptotalsupply2 = useGetTotalSupply();
+  const lptotalsupply2 = useGetTotalSupply2();
   const lptotalsupplyamount2 = lptotalsupply2.toNumber()
 
   const lpprice2 = (lpBnbamount2*2)/lptotalsupplyamount2

@@ -20,7 +20,7 @@ const Announcement = () => {
       <Heading color="primary" size="xl" style={{ width:"100%",textAlign: "center",marginTop: "10px" }}>Announcments</Heading>
       <div style={{width: "80%",margin: "0 auto", marginTop: "3em"}}>
         <ItemDiv>
-          Market Cap: { marketCap }
+          {/* Market Cap: { marketCap } */}
         </ItemDiv>
       </div>
     </MainContainer>

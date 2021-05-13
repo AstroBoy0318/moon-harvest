@@ -34,7 +34,7 @@ const TotalValueLockedCard = () => {
 	      <CardMidContent color="text">
             <CardValue value={totalValue.toNumber()} prefix="$" decimals={2} fontSize="30px"/>
         </CardMidContent>
-        <Heading color="green" size="sm" style={{ marginTop: "10px"}}>
+        <Heading color="white" size="sm" style={{ marginTop: "10px"}}>
 	   	    Across all Farms and Pools
 	      </Heading>
 	    </CardBody>

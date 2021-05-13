@@ -3,7 +3,6 @@ import { provider as ProviderType } from 'web3-core'
 import { Contract } from 'web3-eth-contract'
 import { AbiItem } from 'web3-utils'
 import erc20 from 'config/abi/erc20.json'
-import PancakePair from 'config/abi/PancakePair.json'
 import Referral from 'config/abi/referral.json'
 import addresses from 'config/constants/contracts'
 
@@ -41,53 +40,6 @@ export const getTokenBalance = async (
   }
 }
 
-export const getLpBnbBalance1 = async (
-  provider: ProviderType,
-): Promise<string> => {
-  const web3 = new Web3(provider)
-  const chainId = process.env.REACT_APP_CHAIN_ID
-  const address = addresses.pancakepair1[chainId]
-  const contract = new web3.eth.Contract((PancakePair as unknown) as AbiItem, address)
-  
-  try {
-    const balance: string = await contract.methods.getReserves().call()
-    return balance[1]
-  } catch (e) {
-    return '0'
-  }
-}
-
-export const getLpBnbBalance2 = async (
-  provider: ProviderType,
-): Promise<string> => {
-  const web3 = new Web3(provider)
-  const chainId = process.env.REACT_APP_CHAIN_ID
-  const address = addresses.pancakepair2[chainId]
-  const contract = new web3.eth.Contract((PancakePair as unknown) as AbiItem, address)
-  
-  try {
-    const balance: string = await contract.methods.getReserves().call()
-    return balance[1]
-  } catch (e) {
-    return '0'
-  }
-}
-
-export const getLpTotalSupply = async (
-  provider: ProviderType,
-): Promise<string> => {
-  const web3 = new Web3(provider)
-  const chainId = process.env.REACT_APP_CHAIN_ID
-  const address = addresses.pancakepair1[chainId]
-  const contract = new web3.eth.Contract((PancakePair as unknown) as AbiItem, address)
-  
-  try {
-    const balance: string = await contract.methods.totalSupply().call()
-    return balance
-  } catch (e) {
-    return '0'
-  }
-}
 
 export const getTotalReferrals = async (
   provider: ProviderType,

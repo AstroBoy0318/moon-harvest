@@ -3,10 +3,11 @@ import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import cakeABI from 'config/abi/cake.json'
+import PancakePair from 'config/abi/PancakePair.json'
 import masterchefABI from 'config/abi/masterchef.json'
 import { getContract } from 'utils/web3'
-import { getTokenBalance, getLpBnbBalance1, getLpBnbBalance2, getLpTotalSupply, getTotalReferrals, getTotalReferralCommissions } from 'utils/erc20'
-import { getCakeAddress, getMasterChefAddress } from 'utils/addressHelpers'
+import { getTokenBalance, getTotalReferrals, getTotalReferralCommissions } from 'utils/erc20'
+import { getCakeAddress, getMasterChefAddress, getLP1Address, getLP2Address } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
 
@@ -65,57 +66,65 @@ export const useBurnedBalance = (tokenAddress: string) => {
 
 export const useLPBnbamount1 = () => {
   const [balance, setBalance] = useState(new BigNumber(0))
-  const { ethereum }: { ethereum: provider } = useWallet()
-  const { fastRefresh } = useRefresh()
+  const { slowRefresh } = useRefresh()
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const res = await getLpBnbBalance1(ethereum)
-      setBalance(new BigNumber(res))
-    }   
-
-    if (ethereum) {
-      fetchBalance()
+      const pairContract = getContract(PancakePair, getLP1Address())
+      const bal = await pairContract.methods.getReserves().call()
+      setBalance(new BigNumber(bal[1]))
     }
-  }, [ethereum, fastRefresh])
+    fetchBalance()
+  }, [slowRefresh])
   
   return balance
 }
 
 export const useLPBnbamount2 = () => {
   const [balance, setBalance] = useState(new BigNumber(0))
-  const { ethereum }: { ethereum: provider } = useWallet()
-  const { fastRefresh } = useRefresh()
+  const { slowRefresh } = useRefresh()
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const res = await getLpBnbBalance2(ethereum)
-      setBalance(new BigNumber(res))
+      const pairContract = getContract(PancakePair, getLP2Address())
+      const bal = await pairContract.methods.getReserves().call()
+      setBalance(new BigNumber(bal[1]))
     }   
-
-    if (ethereum) {
-      fetchBalance()
-    }
-  }, [ethereum, fastRefresh])
+    fetchBalance()
+  }, [slowRefresh])
   
   return balance
 }
 
-export const useGetTotalSupply = () => {
+
+export const useGetTotalSupply1 = () => {
   const [balance, setBalance] = useState(new BigNumber(0))
-  const { ethereum }: { ethereum: provider } = useWallet()
-  const { fastRefresh } = useRefresh()
+  const { slowRefresh } = useRefresh()
 
   useEffect(() => {
     const fetchBalance = async () => {
-      const res = await getLpTotalSupply(ethereum)
-      setBalance(new BigNumber(res))
-    }   
-
-    if (ethereum) {
-      fetchBalance()
+      const pairContract = getContract(PancakePair, getLP1Address())
+      const bal = await pairContract.methods.totalSupply().call()
+      setBalance(new BigNumber(bal))
     }
-  }, [ethereum, fastRefresh])
+    fetchBalance()
+  }, [slowRefresh])
+  
+  return balance
+}
+
+export const useGetTotalSupply2 = () => {
+  const [balance, setBalance] = useState(new BigNumber(0))
+  const { slowRefresh } = useRefresh()
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      const pairContract = getContract(PancakePair, getLP2Address())
+      const bal = await pairContract.methods.totalSupply().call()
+      setBalance(new BigNumber(bal))
+    }
+    fetchBalance()
+  }, [slowRefresh])
   
   return balance
 }
