@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
@@ -7,12 +7,11 @@ import { getLotteryIssueIndex } from 'utils/lotteryUtils'
 import useI18n from 'hooks/useI18n'
 import { useLottery } from 'hooks/useContract'
 import Page from 'components/layout/Page'
-import FlexLayout from 'components/layout/Flex'
 import Hero from './components/Hero'
 import Divider from './components/Divider'
 import NextDrawPage from './NextDrawPage'
 import PastDrawsPage from './PastDrawsPage'
-import {lotteryHistory} from '../../api/lottery/lotteryHistory'
+import { lotteryHistory } from '../../api/lottery/lotteryHistory'
 
 const Wrapper = styled.div`
   position: relative;

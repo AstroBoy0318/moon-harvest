@@ -6,7 +6,6 @@ import TokenInput from 'components/TokenInput'
 import useI18n from 'hooks/useI18n'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import Input from '../../../components/Input'
 import Spacer from '../../../components/Spacer'
 import { RefferalContext } from '../../../contexts/RefferalContext'
 

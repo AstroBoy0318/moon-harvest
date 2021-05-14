@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useModal, Button, Text } from '@pancakeswap-libs/uikit'
+import React, { useEffect, useState } from 'react'
+import { Button, Text, useModal } from '@pancakeswap-libs/uikit'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import { Contract } from 'web3-eth-contract'

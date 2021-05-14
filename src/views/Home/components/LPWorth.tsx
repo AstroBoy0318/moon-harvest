@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Card, Heading } from '@pancakeswap-libs/uikit'
-import { useLPBnbamount1, useLPBnbamount2, useGetTotalSupply1, useGetTotalSupply2 } from 'hooks/useTokenBalance'
-import { useFarms, usePriceBnbBusd } from '../../../state/hooks'
+import { useGetTotalSupply1, useGetTotalSupply2, useLPBnbamount1, useLPBnbamount2 } from 'hooks/useTokenBalance'
+import { usePriceBnbBusd } from '../../../state/hooks'
 
 const MainContainer = styled(Card)`
   padding: 24px;
@@ -22,7 +22,6 @@ const ValueDiv = styled.div`
 `
 
 const LPWorth = () => {
-  const [hel3Bnb,setHel3Bnb] = useState(0)
 
   const bnbPrice = usePriceBnbBusd();
   const bnbPricevalue = bnbPrice.toNumber()
@@ -55,7 +54,8 @@ const LPWorth = () => {
           HE3-BNB
         </LabelDiv>
         <ValueDiv>
-          ${ showlpprice1 }
+          ${ showlpprice1 !== 'NaN'?showlpprice1:0 }
+          {/* ${ 0 } */}
         </ValueDiv>
       </ItemDiv>
         <ItemDiv>
@@ -63,7 +63,8 @@ const LPWorth = () => {
             HE3-BUSD
           </LabelDiv>
           <ValueDiv>
-            ${ showlpprice2 }
+            ${ showlpprice2 !== 'NaN'?showlpprice2:0 }
+            {/* ${ 0 } */}
           </ValueDiv>
         </ItemDiv>
       </div>

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Image, Card, CardBody } from '@pancakeswap-libs/uikit'
-import { useWinningNumbers, useMatchingRewardLength } from 'hooks/useTickets'
+import { Card, CardBody } from '@pancakeswap-libs/uikit'
+import { useMatchingRewardLength, useWinningNumbers } from 'hooks/useTickets'
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 

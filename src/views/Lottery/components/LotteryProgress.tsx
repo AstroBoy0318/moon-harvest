@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Progress } from '@pancakeswap-libs/uikit'
+import { Progress, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import useGetLotteryHasDrawn from 'hooks/useGetLotteryHasDrawn'
 import { useCurrentTime } from 'hooks/useTimer'
 import {
-  getLotteryDrawTime,
   getLotteryDrawStep,
-  getTicketSaleTime,
+  getLotteryDrawTime,
   getTicketSaleStep,
+  getTicketSaleTime,
 } from '../helpers/CountdownHelpers'
 
 const ProgressWrapper = styled.div`

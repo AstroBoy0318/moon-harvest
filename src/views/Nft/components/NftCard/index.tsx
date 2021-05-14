@@ -1,15 +1,15 @@
-import React, { useState, useContext, useCallback } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import styled from 'styled-components'
 import {
+  Button,
   Card,
   CardBody,
+  CardFooter,
+  ChevronDownIcon,
+  ChevronUpIcon,
   Heading,
   Tag,
-  Button,
-  ChevronUpIcon,
-  ChevronDownIcon,
   Text,
-  CardFooter,
   useModal,
 } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon } from '@pancakeswap-libs/uikit'
-import { NavLink } from 'react-router-dom'
+import { Card, CardBody, Heading } from '@pancakeswap-libs/uikit'
 import useLotteryTotalPrizesUsd from 'hooks/useLotteryTotalPrizesUsd'
 
 const StyledFarmStakingCard = styled(Card)`

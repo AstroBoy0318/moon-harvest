@@ -1,4 +1,4 @@
-import {Lottery} from '../api/lottery/singleLottery'
+import { Lottery } from '../api/lottery/singleLottery'
 
 export type DataResponse = {
   lotteryNumber: number

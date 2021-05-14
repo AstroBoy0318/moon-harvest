@@ -6,8 +6,8 @@ import cakeABI from 'config/abi/cake.json'
 import PancakePair from 'config/abi/PancakePair.json'
 import masterchefABI from 'config/abi/masterchef.json'
 import { getContract } from 'utils/web3'
-import { getTokenBalance, getTotalReferrals, getTotalReferralCommissions } from 'utils/erc20'
-import { getCakeAddress, getMasterChefAddress, getLP1Address, getLP2Address } from 'utils/addressHelpers'
+import { getTokenBalance, getTotalReferralCommissions, getTotalReferrals } from 'utils/erc20'
+import { getCakeAddress, getLP1Address, getLP2Address, getMasterChefAddress } from 'utils/addressHelpers'
 import useRefresh from './useRefresh'
 
 

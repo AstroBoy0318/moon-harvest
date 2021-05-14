@@ -5,7 +5,7 @@ import { Button, Modal } from '@pancakeswap-libs/uikit'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import TicketInput from 'components/TicketInput'
 import ModalActions from 'components/ModalActions'
-import { useMultiBuyLottery, useMaxNumber } from 'hooks/useBuyLottery'
+import { useMaxNumber, useMultiBuyLottery } from 'hooks/useBuyLottery'
 import useI18n from 'hooks/useI18n'
 
 interface BuyTicketModalProps {

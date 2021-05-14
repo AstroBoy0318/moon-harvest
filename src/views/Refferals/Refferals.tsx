@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { BaseLayout, Button, Card, Link } from '@pancakeswap-libs/uikit'
-import { useTotalReferrals, useTotalReferralCommissions } from '../../hooks/useTokenBalance'
+import { useTotalReferralCommissions, useTotalReferrals } from '../../hooks/useTokenBalance'
 import UnlockButton from '../../components/UnlockButton'
 
 const MainContainer = styled.div`

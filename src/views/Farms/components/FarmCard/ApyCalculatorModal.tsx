@@ -1,10 +1,10 @@
 import React from 'react'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
-import { Modal, Text, LinkExternal, Flex } from '@pancakeswap-libs/uikit'
+import { Flex, LinkExternal, Modal, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { calculateCakeEarnedPerThousandDollars, apyModalRoi } from 'utils/compoundApyHelpers'
+import { apyModalRoi, calculateCakeEarnedPerThousandDollars } from 'utils/compoundApyHelpers'
 import { Address } from 'config/constants/types'
 
 interface ApyCalculatorModalProps {
@@ -67,7 +67,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
-            {TranslateString(999, 'EGG per $1000')}
+            {TranslateString(999, 'HE3 per $1000')}
           </Text>
         </GridItem>
         {/* 1 day row */}

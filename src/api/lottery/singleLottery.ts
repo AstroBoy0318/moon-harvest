@@ -1,7 +1,7 @@
-import { generateLotteryDate } from "./generateLotteryDate";
-import { getIssueIndex, getRates, getSingleLotteryBatch, getTicketPrice, SingleLottery } from "./lotteryUtils";
-import { ceilDecimal } from "./mathUtils";
-import { LOTTERY_CONTRACT } from "./constants";
+import { generateLotteryDate } from './generateLotteryDate'
+import { getIssueIndex, getRates, getSingleLotteryBatch, getTicketPrice, SingleLottery } from './lotteryUtils'
+import { ceilDecimal } from './mathUtils'
+import { LOTTERY_CONTRACT } from './constants'
 
 export const Lottery = async (
   lotteryNumber: number

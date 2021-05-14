@@ -26,7 +26,7 @@ const config: MenuEntry[] = [
     href: '/farms',
   },
   {
-    label: 'Pools',
+    label: 'Craters',
     icon: 'PoolIcon',
     href: '/nests',
   },
@@ -78,7 +78,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'BscScan',
-        href: 'https://bscscan.com/address/0x9364d5df826c588866d9eada82eca5199539b2dc',
+        href: 'https://bscscan.com/address/0x8d9087a2B7E446bb69343542e1430E974f12a18F',
       },
       // {
       //   label: 'DappRadar',

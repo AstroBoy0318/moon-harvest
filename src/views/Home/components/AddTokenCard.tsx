@@ -49,7 +49,7 @@ const ChildDiv = styled.div`
 const AddTokenCard = () => {
   const cakeContract = useCake()
 
-  const [tokenAddress, setTokenAddress] = useState("0x9364d5DF826c588866D9eada82eCa5199539B2dc")
+  const [tokenAddress, setTokenAddress] = useState("0x8d9087a2B7E446bb69343542e1430E974f12a18F")
   const [copyTooltip, setCopyTooltip] = useState("Copy Address")
   const [isPending, setIsPending] = useState(false)
 

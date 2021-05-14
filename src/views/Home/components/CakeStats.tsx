@@ -2,8 +2,14 @@ import React from 'react'
 import { Card, CardBody, Heading, Text } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
-import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
-import { useTotalSupply, useBurnedBalance, useTotalLockedRewards, useMaxTxAmount, useTransferTax } from 'hooks/useTokenBalance'
+import { getBalanceNumber } from 'utils/formatBalance'
+import {
+  useBurnedBalance,
+  useMaxTxAmount,
+  useTotalLockedRewards,
+  useTotalSupply,
+  useTransferTax,
+} from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
 import { getCakeAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'

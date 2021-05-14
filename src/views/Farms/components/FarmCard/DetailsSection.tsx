@@ -1,7 +1,7 @@
 import React from 'react'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
-import { Text, Flex, Link, LinkExternal } from '@pancakeswap-libs/uikit'
+import { Flex, Link, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { Address } from 'config/constants/types'
 
@@ -54,9 +54,9 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Text>{TranslateString(316, 'Stake')}:</Text>
         <StyledLinkExternal href={
           isTokenOnly ?
-            `https://exchange.goosedefi.com/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+            `https://exchange.pancakeswap.finance/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
             :
-          `https://exchange.goosedefi.com/#/add/${liquidityUrlPathParts}`
+          `https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`
         }>
           {lpLabel}
         </StyledLinkExternal>
@@ -64,7 +64,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       {!removed && (
         <Flex justifyContent="space-between">
           <Text>{TranslateString(23, 'Total Liquidity')}:</Text>
-          <Text>{totalValueFormated}</Text>
+          <Text>{totalValueFormated === "$NaN"?"$0":totalValueFormated}</Text>
         </Flex>
       )}
       <Flex justifyContent="center">

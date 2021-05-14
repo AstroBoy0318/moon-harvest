@@ -1,16 +1,17 @@
-import React, { useEffect, Suspense, lazy, useContext } from 'react'
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import React, { lazy, Suspense, useContext, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchPublicData } from 'state/hooks'
-import * as queryString from 'querystring'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
 // import NftGlobalNotification from './views/Nft/components/NftGlobalNotification'
 import TopBar from './components/TopBar'
 import Refferals from './views/Refferals'
+import { RefferalContext } from './contexts/RefferalContext'
+import BottomBar from './components/BottomBar'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -80,6 +81,7 @@ const App: React.FC = () => {
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>
+          <BottomBar/>
         </Suspense>
       </Menu>
     </Router>

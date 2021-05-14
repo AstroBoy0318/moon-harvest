@@ -1,14 +1,14 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import BigNumber from 'bignumber.js'
 import { useLottery, useLotteryTicket } from 'hooks/useContract'
 import useRefresh from './useRefresh'
 import {
-  getTotalRewards,
-  getTotalClaim,
   getMatchingRewardLength,
-  getWinningNumbers,
   getTickets,
+  getTotalClaim,
+  getTotalRewards,
+  getWinningNumbers,
 } from '../utils/lotteryUtils'
 
 const useTickets = (lotteryNumber = null) => {

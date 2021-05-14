@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Text, LinkExternal, Link } from '@pancakeswap-libs/uikit'
+import { Link, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 
 export interface IfoCardDetailsProps {

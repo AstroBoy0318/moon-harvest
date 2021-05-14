@@ -1,7 +1,7 @@
-import { PromisifyBatchRequest } from "./PromiseBatchRequest";
-import { ratesV2, ratesV1, rates, Rates } from "./lotteryRates";
-import { LOTTERY_CONTRACT } from "./constants";
-import { getContract } from "./web3";
+import { PromisifyBatchRequest } from './PromiseBatchRequest'
+import { rates, Rates, ratesV1, ratesV2 } from './lotteryRates'
+import { LOTTERY_CONTRACT } from './constants'
+import { getContract } from './web3'
 import lotteryABI from '../../config/abi/lottery.json'
 
 export interface SingleLotteryReturn {

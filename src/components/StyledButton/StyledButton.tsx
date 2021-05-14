@@ -1,6 +1,5 @@
-
 import { Button } from '@pancakeswap-libs/uikit'
-import styled  from 'styled-components'
+import styled from 'styled-components'
 import React from 'react'
 
 const StyledButton = styled(Button)`

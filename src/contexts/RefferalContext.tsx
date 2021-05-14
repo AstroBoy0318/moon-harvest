@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import queryString from "querystring"
+import queryString from 'querystring'
 
 const RefferalContext = React.createContext({ refferalAddress: "" })
 

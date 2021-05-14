@@ -1,9 +1,9 @@
 import BigNumber from 'bignumber.js'
-import { useEffect, useMemo } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import useRefresh from 'hooks/useRefresh'
-import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
-import { State, Farm, Pool } from './types'
+import { fetchFarmsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
+import { Farm, Pool, State } from './types'
 import { QuoteToken } from '../config/constants/types'
 
 const ZERO = new BigNumber(0)
@@ -79,9 +79,10 @@ export const usePriceCakeBusd = (): BigNumber => {
   // const bnbPriceUSD = usePriceBnbBusd()
   // const farm = useFarmFromPid(pid)
   // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  const pid = 1; // EGG-BUSD LP
+  const pid = 0; // EGG-BUSD LP
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+  // return farm.tokenPriceVsQuote ? new BigNumber(0) : ZERO;
 }
 
 export const useTotalValue = (): BigNumber => {
@@ -100,7 +101,8 @@ export const useTotalValue = (): BigNumber => {
       }else{
         val = (farm.lpTotalInQuoteToken);
       }
-      value = value.plus(val);
+      if(val.toString() !== 'NaN')
+        value = value.plus(val);
     }
   }
   return value;

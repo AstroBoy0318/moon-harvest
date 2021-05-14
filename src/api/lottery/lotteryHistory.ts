@@ -1,5 +1,5 @@
-import { getAllLotteries, getIssueIndex, getRates, LotteryHistory } from "./lotteryUtils";
-import { ceilDecimal } from "./mathUtils";
+import { getAllLotteries, getIssueIndex, getRates } from './lotteryUtils'
+import { ceilDecimal } from './mathUtils'
 
 export const lotteryHistory = async () => {
   const issueIndex = await getIssueIndex();

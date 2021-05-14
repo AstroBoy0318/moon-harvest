@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Card, CardBody } from '@pancakeswap-libs/uikit'
 import getLotteryRoundData from 'utils/getLotteryRoundData'
