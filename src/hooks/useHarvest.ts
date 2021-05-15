@@ -1,9 +1,9 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { useDispatch } from 'react-redux'
 import { fetchFarmUserDataAsync, updateUserBalance, updateUserPendingReward } from 'state/actions'
 import { harvest, soushHarvest, soushHarvestBnb } from 'utils/callHelpers'
-import { useMasterchef, useSousChef } from './useContract'
+import { useGettingtime, useMasterchef, useSousChef } from './useContract'
 
 export const useHarvest = (farmPid: number) => {
   const dispatch = useDispatch()
@@ -55,15 +55,52 @@ export const useSousHarvest = (sousId, isUsingBnb = false) => {
   return { onReward: handleHarvest }
 }
 
-export const useHarvestTime = async (farmPid: number) => {
+export const useHarvestTime = (farmPid: number) => {
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
-  const res = await masterChefContract.methods.userInfo(farmPid,account).call()
-  return res.nextHarvestUntil-new Date().getTime()/1000
+  const gettingtimeContract = useGettingtime()
+  const [time,setTime] = useState(0)
+
+  useEffect(() => {
+    const fetchTime = async () => {
+      if(account && time === 0) {
+        const res = await masterChefContract.methods.userInfo(farmPid, account).call()
+        // const now = await gettingtimeContract.methods.gettingtime().call()
+        setTime(res.nextHarvestUntil)
+      }
+    }
+     fetchTime()
+    if(time > 0)
+    {
+      setTimeout(()=>{
+        setTime(time-1)
+      },1000)
+    }
+  }, [account,masterChefContract,gettingtimeContract,farmPid,time])
+
+  return time
 }
-export const useCanHarvest = async (farmPid: number) => {
+
+export const useNowTime = () => {
   const { account } = useWallet()
-  const masterChefContract = useMasterchef()
-  const res = await masterChefContract.methods.canHarvest(farmPid,account).call()
-  return res
+  const gettingtimeContract = useGettingtime()
+  const [time,setTime] = useState(0)
+
+  useEffect(() => {
+    const fetchTime = async () => {
+      if(account && time === 0) {
+        const now = await gettingtimeContract.methods.gettingtime().call()
+        setTime(now)
+      }
+    }
+     fetchTime()
+    if(time > 0)
+    {
+      setTimeout(()=>{
+        setTime(time-1)
+      },1000)
+    }
+  }, [account,gettingtimeContract,time])
+
+  return time
 }

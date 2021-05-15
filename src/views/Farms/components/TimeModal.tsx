@@ -19,20 +19,7 @@ const secondsToHms = (d)=>{
   return hDisplay + mDisplay + sDisplay;
 }
 const TimeModal: React.FC<TimeModalProps> = ({ pid, onDismiss}) => {
-  const [harvestTime,setHarvestTime] = useState(0)
-
-  useHarvestTime(pid).then((res)=>{
-    setHarvestTime(res)
-  })
-
-  useEffect(()=>{
-    if(harvestTime > 0)
-    {
-      setTimeout(()=> {
-        setHarvestTime(harvestTime - 1)
-      },1000)
-    }
-  },[harvestTime])
+  const [harvestTime,setHarvestTime] = useState(useHarvestTime(pid))
   const timeString = secondsToHms(harvestTime)
   return (
     <Modal title="Harvest In" onDismiss={onDismiss}>

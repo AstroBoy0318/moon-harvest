@@ -8,6 +8,9 @@ export const getCakeAddress = () => {
 export const getMasterChefAddress = () => {
   return addresses.masterChef[chainId]
 }
+export const getGettingtimeAddress = () => {
+  return addresses.gettingtime[chainId]
+}
 export const getMulticallAddress = () => {
   return addresses.mulltiCall[chainId]
 }

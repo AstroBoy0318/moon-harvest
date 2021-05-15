@@ -12,7 +12,7 @@ import { useApprove } from 'hooks/useApprove'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
 import TimeModal from '../TimeModal'
-import { useHarvestTime } from '../../../../hooks/useHarvest'
+import { useHarvestTime, useNowTime } from '../../../../hooks/useHarvest'
 
 const Action = styled.div`
   padding-top: 16px;
@@ -52,6 +52,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
     return getContract(ethereum as provider, lpAddress);
   }, [ethereum, lpAddress, tokenAddress, isTokenOnly])
 
+  const [harvestTime,setHarvestTime] = useState(useHarvestTime(pid)-useNowTime())
+
   const [onPresentTime] = useModal(<TimeModal pid={farm.pid}/>)
 
   const { onApprove } = useApprove(lpContract)
@@ -89,7 +91,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, ethereum, account }
           </Text>
         </Flex>
         {
-          stakedBalance.toNumber() > 0 &&
+          (stakedBalance.toNumber() > 0 && harvestTime >0 ) &&
           (
             <TimeButton onClick={onPresentTime}>
               <svg viewBox="0 0 24 24" fill="orange" width="20px">
