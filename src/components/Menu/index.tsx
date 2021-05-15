@@ -25,7 +25,7 @@ const Menu = (props) => {
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
-      priceLink="https://www.coingecko.com/en/coins/moonharvest"
+      priceLink="https://bscscan.com/address/0x8d9087a2B7E446bb69343542e1430E974f12a18F"
       {...props}
     />
   )

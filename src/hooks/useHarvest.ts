@@ -10,8 +10,8 @@ export const useHarvest = (farmPid: number) => {
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
 
-  const handleHarvest = useCallback(async () => {
-    const txHash = await harvest(masterChefContract, farmPid, account)
+  const handleHarvest = useCallback(async (address?:string) => {
+    const txHash = await harvest(masterChefContract, farmPid, account, address)
     dispatch(fetchFarmUserDataAsync(account))
     return txHash
   }, [account, dispatch, farmPid, masterChefContract])
@@ -53,4 +53,17 @@ export const useSousHarvest = (sousId, isUsingBnb = false) => {
   }, [account, dispatch, isUsingBnb, masterChefContract, sousChefContract, sousId])
 
   return { onReward: handleHarvest }
+}
+
+export const useHarvestTime = async (farmPid: number) => {
+  const { account } = useWallet()
+  const masterChefContract = useMasterchef()
+  const res = await masterChefContract.methods.userInfo(farmPid,account).call()
+  return res.nextHarvestUntil-new Date().getTime()/1000
+}
+export const useCanHarvest = async (farmPid: number) => {
+  const { account } = useWallet()
+  const masterChefContract = useMasterchef()
+  const res = await masterChefContract.methods.canHarvest(farmPid,account).call()
+  return res
 }

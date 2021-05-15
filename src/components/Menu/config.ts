@@ -28,7 +28,7 @@ const config: MenuEntry[] = [
   {
     label: 'Craters',
     icon: 'PoolIcon',
-    href: '/nests',
+    href: '/craters',
   },
   // {
   //   label: 'Pools',

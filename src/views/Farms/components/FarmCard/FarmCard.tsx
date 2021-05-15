@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes } from 'styled-components'
-import { Flex, Skeleton, Text } from '@pancakeswap-libs/uikit'
+import { Flex, HelpIcon, Skeleton, Text } from '@pancakeswap-libs/uikit'
 import { Farm } from 'state/types'
 import { provider } from 'web3-core'
 import useI18n from 'hooks/useI18n'
@@ -84,6 +84,29 @@ const Divider = styled.div`
 const ExpandingWrapper = styled.div<{ expanded: boolean }>`
   height: ${(props) => (props.expanded ? '100%' : '0px')};
   overflow: hidden;
+`
+
+const HelpDiv = styled.div`
+  display: inline-block;
+  position: relative;
+  & > a {
+    position: relative;
+    top: 4px;
+    left: 4px;
+  }
+  & > .tooltip{
+    display: none;
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    width: 160px;
+    left: 135%;
+    padding: 10px;
+    border-radius: 10px;
+    top: -35px;
+  }
+  &:hover > .tooltip{
+    display: block;
+  }
 `
 
 interface FarmCardProps {
@@ -176,7 +199,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
       </Flex>
       <Flex justifyContent='space-between'>
-        <Text style={{ fontSize: '15px' }}>Harvest Lockup</Text>
+        <Text style={{ fontSize: '15px' }}>
+          Harvest Lockup
+          <HelpDiv>
+            <a href="https://docs.moonharvest.net">
+              <HelpIcon color="primary" style={{width: "15px"}}/>
+            </a>
+            <span className="tooltip">
+              <Text color="primary">How soon you harvest or compound again</Text>
+            </span>
+          </HelpDiv>
+          </Text>
         <Text bold style={{ fontSize: '15px' }}>{(farm.harvestInterval / 3600)}hours</Text>
       </Flex>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
