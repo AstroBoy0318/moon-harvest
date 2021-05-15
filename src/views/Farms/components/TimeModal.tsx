@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Button, Modal,Text } from '@pancakeswap-libs/uikit'
 import ModalActions from 'components/ModalActions'
 import Spacer from '../../../components/Spacer'
-import { useHarvestTime } from '../../../hooks/useHarvest'
+import { useHarvestTime, useNowTime } from '../../../hooks/useHarvest'
 
 interface TimeModalProps {
   pid: number
@@ -19,8 +19,9 @@ const secondsToHms = (d)=>{
   return hDisplay + mDisplay + sDisplay;
 }
 const TimeModal: React.FC<TimeModalProps> = ({ pid, onDismiss}) => {
-  const [harvestTime,setHarvestTime] = useState(useHarvestTime(pid))
-  const timeString = secondsToHms(harvestTime)
+  const harvestTime = useHarvestTime(pid)
+  const nowTime = useNowTime()
+  const timeString = secondsToHms(harvestTime-nowTime)
   return (
     <Modal title="Harvest In" onDismiss={onDismiss}>
       <Text fontSize="32px" bold color="primary" style={{margin: "0 auto"}}> { timeString }</Text>

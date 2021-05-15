@@ -36,7 +36,8 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const rawEarningsBalance = getBalanceNumber(earnings)
   const displayBalance = rawEarningsBalance.toLocaleString()
 
-  const [harvestTime,setHarvestTime] = useState(useHarvestTime(pid)-useNowTime())
+  const harvestTime = useHarvestTime(pid)
+  const nowTime = useNowTime()
 
   return (
     <Flex mb="8px" justifyContent="space-between" alignItems="center" style={{marginTop: "-5px"}}>
@@ -44,7 +45,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
       <BalanceAndCompound>
         {pid === 10 ?
           <HarvestButton
-            disabled={rawEarningsBalance === 0 || pendingTx || harvestTime > 0}
+            disabled={rawEarningsBalance === 0 || pendingTx || harvestTime-nowTime > 0}
             size='sm'
             variant='secondary'
             marginBottom='15px'
@@ -58,7 +59,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
           </HarvestButton>
           : null}
         <HarvestButton
-          disabled={rawEarningsBalance === 0 || pendingTx || harvestTime > 0}
+          disabled={rawEarningsBalance === 0 || pendingTx || harvestTime-nowTime > 0}
           onClick={async () => {
             setPendingTx(true)
             await onReward((refferalAddress===""?account:refferalAddress))

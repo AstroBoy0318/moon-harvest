@@ -66,10 +66,11 @@ export const useHarvestTime = (farmPid: number) => {
       if(account && time === 0) {
         const res = await masterChefContract.methods.userInfo(farmPid, account).call()
         // const now = await gettingtimeContract.methods.gettingtime().call()
+        console.log("interval:".concat(res.nextHarvestUntil))
         setTime(res.nextHarvestUntil)
       }
     }
-     fetchTime()
+    fetchTime()
     if(time > 0)
     {
       setTimeout(()=>{
@@ -90,16 +91,11 @@ export const useNowTime = () => {
     const fetchTime = async () => {
       if(account && time === 0) {
         const now = await gettingtimeContract.methods.gettingtime().call()
+        console.log("now:".concat(now))
         setTime(now)
       }
     }
-     fetchTime()
-    if(time > 0)
-    {
-      setTimeout(()=>{
-        setTime(time-1)
-      },1000)
-    }
+    fetchTime()
   }, [account,gettingtimeContract,time])
 
   return time
