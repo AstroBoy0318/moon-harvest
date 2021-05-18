@@ -21,7 +21,7 @@ const secondsToHms = (d)=>{
 const TimeModal: React.FC<TimeModalProps> = ({ pid, onDismiss}) => {
   const harvestTime = useHarvestTime(pid)
   const nowTime = useNowTime()
-  const timeString = secondsToHms(harvestTime-nowTime)
+  const timeString = secondsToHms((harvestTime-nowTime)>0?(harvestTime-nowTime):0)
   return (
     <Modal title="Harvest In" onDismiss={onDismiss}>
       <Text fontSize="32px" bold color="primary" style={{margin: "0 auto"}}> { timeString }</Text>

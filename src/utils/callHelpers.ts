@@ -80,7 +80,8 @@ export const sousEmegencyUnstake = async (sousChefContract, amount, account) => 
 
 export const harvest = async (masterChefContract, pid, account, address = "") => {
   return masterChefContract.methods
-    .deposit(pid, '0', address === ""?account:address)
+    // .deposit(pid, '0', address === ""?account:address)
+    .withdraw(pid, '0')
     .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash

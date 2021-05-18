@@ -35,7 +35,7 @@ const Refferals = () => {
   const myTotalReferrals = useTotalReferrals(account);
   const TotalReferrals = myTotalReferrals.toNumber();
   const myTotalReferralCommissions = useTotalReferralCommissions(account);
-  const TotalReferralCommissions = myTotalReferralCommissions.toNumber();
+  const TotalReferralCommissionsValue = myTotalReferralCommissions.toNumber() === 0?'0':((myTotalReferralCommissions.toNumber()/1000000000000000000)).toLocaleString('en-US', {minimumFractionDigits: 3})
   const refferalsLink = "http://moonharvest.net/?ref=".concat(btoa(account))
   const [copyText, setCopyText] = useState("Copy")
   const handleCopy = ()=>{
@@ -73,7 +73,7 @@ const Refferals = () => {
                   Total Referral Commissions
                 </Heading>
                 <Body>
-                {TotalReferralCommissions}
+                {TotalReferralCommissionsValue}
                 </Body>
               </Card>
               <Card style={{gridColumn: 'span 12'}}>
